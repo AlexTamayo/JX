@@ -1,4 +1,3 @@
--- Users table seeds here (Example)
 INSERT INTO users (name, email, password, join_date, rating, username, profile_image) VALUES ('Caitrin Collihole', 'ccollihole0@businessinsider.com', 'tC2?PP?<X?D', '5/4/2006', 1344, 'ccollihole0', 'https://robohash.org/quamnonsed.png?size=50x50&set=set1');
 INSERT INTO users (name, email, password, join_date, rating, username, profile_image) VALUES ('Sephira Mouat', 'smouat1@ucsd.edu', 'nA5%p``''Ef', '7/30/2017', 414, 'smouat1', 'https://robohash.org/suntquiaut.png?size=50x50&set=set1');
 INSERT INTO users (name, email, password, join_date, rating, username, profile_image) VALUES ('Moore Chewter', 'mchewter2@foxnews.com', 'eN7!&av!%+ZA', '11/17/2022', 558, 'mchewter2', 'https://robohash.org/culpavoluptatemquis.png?size=50x50&set=set1');
