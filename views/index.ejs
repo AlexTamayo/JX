@@ -1,31 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Home Page</title>
-
+    <title>JX HOME</title>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
 
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" />
-    <link rel="stylesheet" href="/styles/main.css" />
-    <link rel="stylesheet" href="/styles/layout.css" />
-    <link rel="stylesheet" href="/styles/nav.css" />
-
-    <script src="/vendor/jquery-3.0.0.js"></script>
-    <script defer src="/scripts/app.js"></script>
+    <link rel="stylesheet" href="styles/nav.scss" type="text/css" />
   </head>
-
   <body>
-    <!-- <%- include('partials/_navbar') %> -->
-    <nav>
-      <span class="logo">
-        <img src="../_auxiliary/front_end_design/JX_design_logo.png" />
-      </span>
-
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">Online Store</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <!-- Add your navbar links here -->
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </nav>
-    <h1>This is JX!</h1>
-    <h2>Get the Goods</h2>
+
+    <!-- Main Content: Grid Setup -->
+    <main class="container mt-4">
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+        <!-- Sample item for sale (Replace with dynamic data from backend) -->
+        <div class="col mb-4">
+          <div class="card">
+            <img src="item_image.jpg" class="card-img-top" alt="Item Image" />
+            <div class="card-body">
+              <h5 class="card-title">Item Name</h5>
+              <p class="card-text">Price: $XX.XX</p>
+              <button type="button" class="btn btn-outline-secondary">
+                Favorite
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add more grid items here (as many as needed) -->
+      </div>
+    </main>
   </body>
 </html>

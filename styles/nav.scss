@@ -1,3 +1,23 @@
+/* Custom Navbar Styles */
+.navbar {
+  background-color: #333; /* Change the background color to your preference */
+}
+
+.navbar-brand {
+  font-size: 24px; /* Change the font size for the navbar brand */
+}
+
+.nav-link {
+  font-size: 18px; /* Change the font size for navbar links */
+}
+
+/* Optional: Change the color of active and hover links */
+.navbar-dark .navbar-nav .nav-link.active,
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: #fff;
+}
+
+
 // // * {
 // //   box-sizing: border-box;
 // // }

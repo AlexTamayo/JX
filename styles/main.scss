@@ -16,3 +16,41 @@ body {
     rgba(163, 208, 219, 1) 100%
   );
 }
+
+/* Custom Main Container Layout Styles */
+.container {
+  max-width: 1200px; /* Change the max width of the container */
+}
+
+.card {
+  border: 1px solid #ddd; /* Add a border to the card */
+  border-radius: 5px; /* Add rounded corners to the card */
+}
+
+.card-img-top {
+  height: 200px; /* Adjust the height of the item image */
+  object-fit: cover; /* Ensure the image covers the container */
+}
+
+.card-title {
+  font-size: 18px; /* Change the font size of the item title */
+  font-weight: bold; /* Add bold to the item title */
+}
+
+.card-text {
+  font-size: 16px; /* Change the font size of the item price */
+  color: #555; /* Change the color of the item price text */
+}
+
+.btn-outline-secondary {
+  font-size: 16px; /* Change the font size of the "Favorite" button */
+  border-color: #777; /* Change the border color of the button */
+  color: #777; /* Change the text color of the button */
+  border-radius: 5px; /* Add rounded corners to the button */
+  transition: 0.3s; /* Add a smooth transition on hover */
+}
+
+.btn-outline-secondary:hover {
+  background-color: #777; /* Change the background color on hover */
+  color: #fff; /* Change the text color on hover */
+}
