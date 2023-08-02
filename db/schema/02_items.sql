@@ -18,8 +18,8 @@ CREATE TABLE items (
   active BOOLEAN NOT NULL DEFAULT TRUE
 );
 
-DROP TABLE IF EXISTS items_images CASCADE;
-CREATE TABLE items_images (
+DROP TABLE IF EXISTS item_images CASCADE;
+CREATE TABLE item_images (
   id SERIAL PRIMARY KEY NOT NULL,
   item_id INTEGER REFERENCES items(id) ON DELETE CASCADE,
   image_1 VARCHAR(255),
@@ -29,4 +29,3 @@ CREATE TABLE items_images (
   image_5 VARCHAR(255),
   image_6 VARCHAR(255)
 );
-

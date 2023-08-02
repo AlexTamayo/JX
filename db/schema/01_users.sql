@@ -7,7 +7,7 @@ CREATE TABLE users (
   email VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL,
   join_date TIMESTAMP NOT NULL,
-  rating INTEGER,
+  rating INTEGER DEFAULT 0,
   username VARCHAR(255) NOT NULL,
   profile_image VARCHAR(255)
 );

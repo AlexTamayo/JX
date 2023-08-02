@@ -1,0 +1,2 @@
+-- INSERT INTO message_chains (id, reciever_id, sender_id, item_id) VALUES (id, reciever_id, sender_id, item_id);
+INSERT INTO message_chains (id, reciever_id, sender_id, item_id) VALUES (1, 1, 2, 164);
