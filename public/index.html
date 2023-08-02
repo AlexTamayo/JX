@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>JX HOME</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- FontAwesome Cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- App CSS -->
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
+    <link rel="stylesheet" href="/styles/nav.css" />
+    <!-- Bootstrap CDN CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+
+    <!-- Internal JS -->
+    <script src="/vendor/jquery-3.0.0.js"></script>
+    <script defer src="/scripts/app.js"></script>
+
+    <!-- External JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body>
+    <!-- New Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+      <div class="container">
+        <a
+          href="index.html"
+          class="navbar-brand d-flex justify-content-between align-items-center"
+        >
+          <img src="/images/JX_design_logo.png" alt="JX" />
+          <a class="nav-link" href="index.html">HOME</a>
+        </a>
+        <div class="collapse navbar-collapse" id="explore-menu">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#explore">Explore</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="navbar-right">
+          <a href="#">Join now</a> or <a href="#">Login</a>
+        </div>
+      </div>
+    </nav>
+    <!-- end of navbar -->
+
+    <!-- jumbotron? -->
+    <!-- <22  -->
+    <!-- end of jumbotron -->
+
+    <!-- items -->
+    <secton id="items" class="py-5">
+      <div class="container">
+        <div class="title text-center">
+          <h2 class="position-relative d-inline-block">Featured Items</h2>
+        </div>
+
+        <!-- row start -->
+        <div class="items-list mt-4 row">
+          <!-- column start -->
+          <div class="col-md-6 col-lg-4 col-xl-3 p-2 col">
+            <div class="item-img position-relative">
+              <img src="/images/temp-img/8.jpg" class="w-100" />
+            </div>
+            <div class="text-center">
+              <div class="favourite mt-3">
+                <span class="text-primary"
+                  ><i class="fa-solid fa-heart"></i
+                ></span>
+              </div>
+              <p class="text-capitalize my-1">Bottle collection</p>
+              <span class="fw-bold">$399</span>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 col-xl-3 p-2 col">
+            <div class="item-img position-relative">
+              <img src="/images/temp-img/9.jpg" class="w-100" />
+            </div>
+            <div class="text-center">
+              <div class="favourite mt-3">
+                <span class="text-primary"
+                  ><i class="fa-solid fa-heart"></i
+                ></span>
+              </div>
+              <p class="text-capitalize my-1">Knife Set</p>
+              <span class="fw-bold">$225</span>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 col-xl-3 p-2 col">
+            <div class="item-img position-relative">
+              <img src="/images/temp-img/3.jpg" class="w-100" />
+            </div>
+            <div class="text-center">
+              <div class="favourite mt-3">
+                <span class="text-primary"
+                  ><i class="fa-solid fa-heart"></i
+                ></span>
+              </div>
+              <p class="text-capitalize my-1">Kitchenwares</p>
+              <span class="fw-bold">Free</span>
+            </div>
+          </div>
+        </div>
+        <!-- end of row of items -->
+        <div class="items-list mt-4 row">
+          <div class="col-md-6 col-lg-4 col-xl-3 p-2 col">
+            <div class="item-img position-relative">
+              <img src="/images/temp-img/4.jpg" class="w-100" />
+            </div>
+            <div class="text-center">
+              <div class="favourite mt-3">
+                <span class="text-primary"
+                  ><i class="fa-solid fa-heart"></i
+                ></span>
+              </div>
+              <p class="text-capitalize my-1">Wooden 'Spice' Spoons</p>
+              <span class="fw-bold">$39.99</span>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 col-xl-3 p-2 col">
+            <div class="item-img position-relative">
+              <img src="/images/temp-img/5.jpg" class="w-100" />
+            </div>
+            <div class="text-center">
+              <div class="favourite mt-3">
+                <span class="text-primary"
+                  ><i class="fa-solid fa-heart"></i
+                ></span>
+              </div>
+              <p class="text-capitalize my-1">Mug</p>
+              <span class="fw-bold">$5</span>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 col-xl-3 p-2 col">
+            <div class="item-img position-relative">
+              <img src="/images/temp-img/6.jpg" class="w-100" />
+            </div>
+            <div class="text-center">
+              <div class="favourite mt-3">
+                <span class="text-primary"
+                  ><i class="fa-solid fa-heart"></i
+                ></span>
+              </div>
+              <p class="text-capitalize my-1">Whisks x2</p>
+              <span class="fw-bold">$11</span>
+            </div>
+          </div>
+        </div>
+        <!-- end of row of items -->
+      </div>
+    </secton>
+    <!-- end of items -->
+  </body>
+</html>

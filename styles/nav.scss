@@ -1,6 +1,27 @@
-// * {
-//   box-sizing: border-box;
+* {
+  box-sizing: border-box;
+}
+
+// .main-nav {
+//   display: flex;
+//   justify-content: space-between;
+//   position: fixed;
+//   align-items: center;
+//   width: 100%;
+//   height: auto;
+//   border-bottom: 2px solid #eaeaea;
+//   top: 0;
 // }
+
+// .nav-container {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+// }
+
+
+
+
 
 // nav {
 //   display: flex;
@@ -12,47 +33,6 @@
 //   background-color: #ffffff;
 //   color: black;
 //   font-size: 24px;
+//   position: fixed;
+//   z-index: 999;
 // }
-
-// Generate series of `.navbar-expand-*` responsive classes for configuring
-// where your navbar collapses.
-.navbar-expand {
-  @each $breakpoint in map-keys($grid-breakpoints) {
-    $next: breakpoint-next($breakpoint, $grid-breakpoints);
-    $infix: breakpoint-infix($next, $grid-breakpoints);
-
-    // stylelint-disable-next-line scss/selector-no-union-class-name
-    &#{$infix} {
-      @include media-breakpoint-up($next) {
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-
-        .navbar-nav {
-          flex-direction: row;
-
-          .dropdown-menu {
-            position: absolute;
-          }
-
-          .nav-link {
-            padding-right: $navbar-nav-link-padding-x;
-            padding-left: $navbar-nav-link-padding-x;
-          }
-        }
-
-        .navbar-nav-scroll {
-          overflow: visible;
-        }
-
-        .navbar-collapse {
-          display: flex !important; // stylelint-disable-line declaration-no-important
-          flex-basis: auto;
-        }
-
-        .navbar-toggler {
-          display: none;
-        }
-      }
-    }
-  }
-}

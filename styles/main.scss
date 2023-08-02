@@ -1,18 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaisei+Tokumin:wght@500&family=Poppins:wght@300&family=VT323&display=swap');
+
+:root {
+  --lg-font: 'Kaisei Tokumin', serif;
+  --sm-font: 'Poppins', sans-serif;
+}
+
+
 body {
-  display: flex;
+  font-family: var(--sm-font);
+  // display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-
-  background: rgb(163, 208, 219);
-  background: linear-gradient(
-    227deg,
-    rgba(163, 208, 219, 1) 0%,
-    rgba(163, 176, 219, 1) 20%,
-    rgba(163, 173, 219, 1) 34%,
-    rgba(163, 219, 208, 1) 59%,
-    rgba(163, 208, 219, 1) 74%,
-    rgba(163, 208, 219, 1) 100%
-  );
+  // align-items: center;
+  // min-height: 100vh;
+  background: whitesmoke;
 }
+
+.navbar {
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.1);
+}
+.navbar-brand img{
+  width: 30px;
+}
+.navbar-brand span{
+  letter-spacing: 2px;
+  font-family: var(--lg-font);
+}
+// .nav-link:hover{
+//   color: var(--lg-font);
+// }
+
+.items-list .col {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 4px;
+  margin: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.items-list mt-4 row {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+
+
