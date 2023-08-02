@@ -10,6 +10,7 @@ $(() => {
     $searchPropertyForm.detach();
     $logInForm.detach();
     $signUpForm.detach();
+    // $message_inbox.detach();
 
     switch (item) {
       case 'listings':
@@ -34,10 +35,10 @@ $(() => {
           $error.remove();
           views_manager.show('listings');
         }, 2000);
-        
+
         break;
       }
     }
   }
-  
+
 });
