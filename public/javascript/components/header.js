@@ -12,10 +12,12 @@ $(() => {
       userLinks = `
       <nav id="page-header__user-links" class="page-header__user-links">
         <ul>
-          <li class="home">🏠</li>
+          <li class="home-logo">JX</li>
+          <li class="home">Home</li>
           <li class="search_button">Search</li>
-          <li class="login_button">Log In</li>
-          <li class="sign-up_button">Sign Up</li>
+          <li class="sign-up_button">Join now</li>
+          <li> or </li>
+          <li class="login_button">Login</li>
         </ul>
       </nav>
       `
@@ -23,12 +25,12 @@ $(() => {
       userLinks = `
       <nav id="page-header__user-links" class="page-header__user-links">
         <ul>
-          <li class="home">🏠</li>
+          <li class="home">JX</li>
           <li class="search_button">Search</li>
           <li>${user.name}</li>
-          <li class="create_listing_button">Create Listing</li>
-          <li class="my_listing_button">My Listings</li>
-          <li class="my_reservations_button">My Reservations</li>
+          <li class="create_listing_button">Post+</li>
+          <li class="my_listing_button">Favourites</li>
+          <li class="my_listing_button">Messages</li>
           <li class="logout_button">Log Out</li>
         </ul>
       </nav>
