@@ -1,47 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Kaisei+Tokumin:wght@500&family=Poppins:wght@300&family=VT323&display=swap');
+@import "property-listings";
+@import "forms";
+@import "header";
 
-:root {
-  --lg-font: 'Kaisei Tokumin', serif;
-  --sm-font: 'Poppins', sans-serif;
+.hidden {
+  display: none;
 }
-
-
-body {
-  font-family: var(--sm-font);
-  // display: flex;
-  flex-direction: column;
-  justify-content: center;
-  // align-items: center;
-  // min-height: 100vh;
-  background: whitesmoke;
-}
-
-.navbar {
-  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.1);
-}
-.navbar-brand img{
-  width: 30px;
-}
-.navbar-brand span{
-  letter-spacing: 2px;
-  font-family: var(--lg-font);
-}
-// .nav-link:hover{
-//   color: var(--lg-font);
-// }
-
-.items-list .col {
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 4px;
-  margin: 2rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.items-list mt-4 row {
-  display: flex;
-  align-items: center;
-  justify-items: center;
-}
-
-
