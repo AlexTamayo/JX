@@ -27,10 +27,10 @@ $(() => {
         <ul>
           <li class="home">JX</li>
           <li class="search_button">Search</li>
-          <li>${user.name}</li>
           <li class="create_listing_button">Post+</li>
           <li class="my_listing_button">Favourites</li>
           <li class="my_listing_button">Messages</li>
+          <li>${user.name}</li>
           <li class="logout_button">Log Out</li>
         </ul>
       </nav>
