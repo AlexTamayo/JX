@@ -1,7 +1,7 @@
 $(() => {
 
   const $searchPropertyForm = $(`
-  <form action="/properties" method="get" id="search-property-form" class="search-property-form">
+  <form action="/items" method="get" id="search-property-form" class="search-property-form">
       <div class="search-property-form__field-wrapper">
         <label for="search-property-form__city">City</label>
         <input type="text" name="city" placeholder="City" id="search-property-form__city">
@@ -32,7 +32,8 @@ $(() => {
     const data = $(this).serialize();
 
     getAllListings(data).then(function( json ) {
-      propertyListings.addProperties(json.properties);
+      // propertyListings.addProperties(json.properties);
+      propertyListings.addProperties(json.items);
       views_manager.show('listings');
     });
   });

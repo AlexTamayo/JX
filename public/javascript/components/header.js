@@ -14,7 +14,7 @@ $(() => {
         <ul>
           <li class="home-logo">JX</li>
           <li class="home">Home</li>
-          <li class="search_button">Search</li>
+          <li class="search_bar">Search</li>
           <li class="sign-up_button">Join now</li>
           <li> or </li>
           <li class="login_button">Login</li>
@@ -26,7 +26,7 @@ $(() => {
       <nav id="page-header__user-links" class="page-header__user-links">
         <ul>
           <li class="home">JX</li>
-          <li class="search_button">Search</li>
+          <li class="search_bar">Search</li>
           <li class="create_listing_button">Post+</li>
           <li class="my_listing_button">Favourites</li>
           <li class="my_listing_button">Messages</li>
@@ -60,7 +60,8 @@ $(() => {
     propertyListings.clearListings();
     getAllListings(`owner_id=${currentUser.id}`)
       .then(function(json) {
-        propertyListings.addProperties(json.properties);
+        // propertyListings.addProperties(json.properties);
+        propertyListings.addProperties(json.items);
         views_manager.show('listings');
     });
   });
@@ -69,12 +70,13 @@ $(() => {
     propertyListings.clearListings();
     getAllListings()
       .then(function(json) {
-        propertyListings.addProperties(json.properties);
+        // propertyListings.addProperties(json.properties);
+        propertyListings.addProperties(json.items);
         views_manager.show('listings');
     });
   });
 
-  $('header').on('click', '.search_button', function() {
+  $('header').on('click', '.search_bar', function() {
     views_manager.show('searchProperty');
   });
 

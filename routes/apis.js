@@ -3,15 +3,30 @@ const database = require("../db/connection");
 
 const router = express.Router();
 
-router.get("/properties", (req, res) => {
+// router.get("/properties", (req, res) => {
+//   database
+//     .getAllItems(req.query, 30)
+//     .then((items) => {
+//       res.send({ items })})
+//     .catch((e) => {
+//       console.error(e);
+//       res.send(e);
+//     });
+// });
+
+
+router.get("/items", (req, res) => {
   database
-    .getAllProperties(req.query, 20)
-    .then((properties) => res.send({ properties }))
+    .getAllItems(req.query, 10)
+    .then((items) => {
+      // console.log(items);
+      res.send({ items })})
     .catch((e) => {
       console.error(e);
       res.send(e);
     });
 });
+
 
 router.get("/reservations", (req, res) => {
   const userId = req.session.userId;
@@ -28,7 +43,26 @@ router.get("/reservations", (req, res) => {
     });
 });
 
-router.post("/properties", (req, res) => {
+// router.post("/properties", (req, res) => {
+//   const userId = req.session.userId;
+//   if (!userId) {
+//     return res.send({ error: "error" });
+//   }
+
+//   const newProperty = req.body;
+//   newProperty.owner_id = userId;
+//   database
+//     .addProperty(newProperty)
+//     .then((property) => {
+//       res.send(property);
+//     })
+//     .catch((e) => {
+//       console.error(e);
+//       res.send(e);
+//     });
+// });
+
+router.post("/items", (req, res) => {
   const userId = req.session.userId;
   if (!userId) {
     return res.send({ error: "error" });
