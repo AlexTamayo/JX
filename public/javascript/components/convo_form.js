@@ -1,43 +1,29 @@
 $(() => {
   const $convo_form = $(`
-  <article>
-    <header>
-      <h1>Conversation with User.Id</h1>
-    </header>
-    <div id="chatContainer">
-      <div class="convoContainer">
-        <div class="convoTop">
-          <div class="senderId">Josh</div>
-          <div class="onlineStatus">Offline</div>
-        </div>
-        <div class="convoMain">
-          I'll sell it for 6 bills, cool?
-        </div>
-        <div class="convoBottom">
-          <div class="timeago">Sent at (timeago)</div>
-          <div class="readStatus">Read</div>
-        </div>
+  <article class="chat-container">
+  
+    <div class="chat__top">
+      <div class="user">
+        <img src="${escape(data.user.avatars)}" alt="avatar">
+        <div class="name">${escape(data.user.name)}</div>
       </div>
-      <div class="convoContainer">
-        <div class="convoTop">
-          <div class="senderId">Alex</div>
-          <div class="onlineStatus">Online</div>
-        </div>
-        <div class="convoMain">
-          I'll buy it!
-        </div>
-        <div class="convoBottom">
-          <div class="timeago">Sent at (timeago)</div>
-          <div class="readStatus">Read</div>
-        </div>
-      </div>
-    </div>
+      <div class="status">
+        ${escape(data.user.onlineStatus)}
+     </div>
+   </div>
+
+    <div class="conversation">${escape(data.content.text)}</div>
+
+   <div class="chat__bottom">
+      <div class="timestamp">${timeago.format(data.created_at)}</div>
+      <div class="read-status">${escape(data.readStatus)}</div>
+   </div>
 
   </article>
   `);
-  window.$message_inbox = $message_inbox;
+  window.$convo_form = $convo_form;
 
-  $message_inbox.on("submit", function (event) {
+  $convo_form.on("submit", function (event) {
     event.preventDefault();
 
     const data = $(this).serialize();
