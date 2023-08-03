@@ -3,10 +3,14 @@ $(() => {
 
   window.views_manager = {};
   const listing_select = () => {
-    $(".property-listing").click(function () {
-      $(this).css("background-color", "blue");
-    });
-  };
+    $('.property-listing').click(function() {
+      const itemId = $(this).attr('id');
+      // $(this).css('background-color', 'yellow')
+      // console.log("Item ID: ", itemId);
+      // views_manager.show('searchProperty')
+      $.get("/items/" + itemId)
+  })
+}
 
   window.views_manager.show = function (item) {
     $newPropertyForm.detach();
