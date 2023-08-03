@@ -1,0 +1,32 @@
+#conversationContainer {
+  width: 100%;
+}
+
+.convoContainer {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  margin-top: 2rem;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.convoTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.convoMain {
+  border: 2px solid blueviolet;
+  border-radius: 6px;
+}
+
+.convoBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+}
+

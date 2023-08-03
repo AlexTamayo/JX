@@ -7,8 +7,35 @@ $(() => {
     </header>
 
     <div id="conversationList">
-      <!-- Conversations will be dynamically generated here -->
-      <!-- Each conversation could be represented as a list item or a card -->
+      <div class="convoContainer">
+        <div class="convoTop">
+          <div class="senderId">Josh</div>
+          <div class="onlineStatus">Online</div>
+        </div>
+        <div class="convoMain">
+          I'm interested in your vacuum! HMU
+        </div>
+        <div class="convoBottom">
+          <div class="timeago">Sent at (timeago)</div>
+          <div class="reply-form__field-wrapper">
+          <button>Reply</button></div>
+        </div>
+      </div>
+      <div class="convoContainer">
+        <div class="convoTop">
+          <div class="senderId">Alex 2</div>
+          <div class="onlineStatus">Offline</div>
+        </div>
+        <div class="convoMain">
+          I'd like to purchase some of your swag, how much?
+        </div>
+        <div class="convoBottom">
+          <div class="timeago">Sent at (timeago)</div>
+          <div class="reply-form__field-wrapper">
+          <button>Reply</button></div>
+        </div>
+      </div>
+
     </div>
 
   </article>
