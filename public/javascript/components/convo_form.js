@@ -1,3 +1,5 @@
+// const users = require('../../../db/queries/users')
+
 $(() => {
   const $convo_form = $(`
 <article class="chat-container">
@@ -65,7 +67,7 @@ $(() => {
   }
 
   // Bind form submit event
-  $(".chat-container .reply").on("submit", handleFormSubmit);
+  $("#message").on("submit", handleFormSubmit);
 
   fetchMessage()
     .then((dbMessages) => {
