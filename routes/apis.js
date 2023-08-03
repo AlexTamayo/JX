@@ -3,24 +3,10 @@ const database = require("../db/connection");
 
 const router = express.Router();
 
-// router.get("/properties", (req, res) => {
-//   database
-//     .getAllItems(req.query, 30)
-//     .then((items) => {
-//       res.send({ items })})
-//     .catch((e) => {
-//       console.error(e);
-//       res.send(e);
-//     });
-// });
-
-
 router.get("/items", (req, res) => {
   database
-    .getAllItems(req.query, 10)
-    .then((items) => {
-      // console.log(items);
-      res.send({ items })})
+    .getAllItems(req.query, 20)
+    .then((items) => res.send({ items }))
     .catch((e) => {
       console.error(e);
       res.send(e);
