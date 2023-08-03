@@ -1,41 +1,36 @@
 $(() => {
-  const $message_inbox = $(`
+  const $convo_form = $(`
   <article>
     <header>
-      <h1>My Inbox</h1>
-      <input type="text" id="searchInput" placeholder="Search conversations...">
+      <h1>Conversation with User.Id</h1>
     </header>
-
-    <div id="conversationList">
+    <div id="chatContainer">
       <div class="convoContainer">
         <div class="convoTop">
           <div class="senderId">Josh</div>
-          <div class="onlineStatus">Online</div>
+          <div class="onlineStatus">Offline</div>
         </div>
         <div class="convoMain">
-          I'm interested in your vacuum! HMU
+          I'll sell it for 6 bills, cool?
         </div>
         <div class="convoBottom">
           <div class="timeago">Sent at (timeago)</div>
-          <div class="reply-form__field-wrapper">
-          <button>Reply</button></div>
+          <div class="readStatus">Read</div>
         </div>
       </div>
       <div class="convoContainer">
         <div class="convoTop">
-          <div class="senderId">Alex 2</div>
-          <div class="onlineStatus">Offline</div>
+          <div class="senderId">Alex</div>
+          <div class="onlineStatus">Online</div>
         </div>
         <div class="convoMain">
-          I'd like to purchase some of your swag, how much?
+          I'll buy it!
         </div>
         <div class="convoBottom">
           <div class="timeago">Sent at (timeago)</div>
-          <div class="reply-form__field-wrapper">
-          <button>Reply</button></div>
+          <div class="readStatus">Read</div>
         </div>
       </div>
-
     </div>
 
   </article>
