@@ -1,7 +1,5 @@
 $(() => {
 
-
-
   const $newPropertyForm = $(`
   <form action="/api/items" method="post" id="new-property-form" class="new-property-form">
       <div class="new-property-form__field-wrapper">
@@ -23,61 +21,72 @@ $(() => {
         </div> -->
 
       <div class="new-property-form__field-wrapper">
-        <label for="new-property-form__bedrooms"># 🛌</label>
-        <input placeholder="# 🛌" type="number" name="number_of_bedrooms" id="new-property-form__bedrooms">
+        <label for="new-property-form__price">Price</label>
+        <input placeholder="Price " type="number" name="price" id="new-property-form__price">
 
-        <label for="new-property-form__bathrooms"># 🚽</label>
-        <input placeholder="# 🚽" type="number" name="number_of_bathrooms" id="new-property-form__rooms">
+        <label for="new-property-form__condition">Condition</label>
+        <select id="new-property-form__condition" name="condition" data-condition-selected="">
+            <option value=""> - </option>
+            <option value="0">New</option>
+            <option value="1">Like New</option>
+            <option value="2">Excellent</option>
+            <option value="3">Good</option>
+            <option value="4">Fair</option>
+            <option value="5">Salvage</option>
+        </select>
 
-        <label for="new-property-form__parking"># 🚘</label>
-        <input placeholder="# 🚘" type="number" name="parking_spaces" id="new-property-form__parking">
       </div>
 
       <div class="new-property-form__field-wrapper">
-        <label for="new-property-form__cost">Cost Per Night</label>
-        <input placeholder="Cost Per Night" type="number" name="cost_per_night" id="new-property-form__cost">
+        <label for="new-property-form__city">City/Town</label>
+        <input placeholder="City/Town" type="text" name="city" id="new-property-form__city">
+
+        <label for="new-property-form__province">Province</label>
+        <select id="new-property-form__province" name="province" data-province-selected="">
+            <option value=""> - </option>
+            <option value="AB">Alberta</option>
+            <option value="BC">British Columbia</option>
+            <option value="MB">Manitoba</option>
+            <option value="NB">New Brunswick</option>
+            <option value="NL">Newfoundland and Labrador</option>
+            <option value="NS">Nova Scotia</option>
+            <option value="ON">Ontario</option>
+            <option value="PE">Prince Edward Island</option>
+            <option value="QC">Quebec</option>
+            <option value="SK">Saskatchewan</option>
+        </select>
+
+        <label for="new-property-form__postal_code">Postal Code</label>
+        <input placeholder="Postal Code" type="text" name="postal_code" id="new-property-form__postal_code">
       </div>
 
       <div class="new-property-form__field-wrapper">
-        <label for="new-property-form__thumbnail">Thumbnail Image</label>
-        <input placeholder="Thumbnail Image" type="text" name="thumbnail_photo_url" id="new-property-form__thumbnail">
+
+        <label for="new-property-form__image_1">Image 1</label>
+        <input placeholder="Image 1" type="text" name="image_1_photo_url" id="new-property-form__image_1">
+
+        <label for="new-property-form__image_2">Image 2</label>
+        <input placeholder="Image 2" type="text" name="image_2_photo_url" id="new-property-form__image_2">
+
+        <label for="new-property-form__image_3">Image 3</label>
+        <input placeholder="Image 3" type="text" name="image_3_photo_url" id="new-property-form__image_3">
+
       </div>
 
       <div class="new-property-form__field-wrapper">
-        <label for="new-property-form__cover">Cover Image</label>
-        <input placeholder="Cover Image" type="text" name="cover_photo_url" id="new-property-form__cover">
-      </div>
+
+      <label for="new-property-form__image_4">Image 4</label>
+      <input placeholder="Image 4" type="text" name="image_4_photo_url" id="new-property-form__image_4">
+
+      <label for="new-property-form__image_5">Image 5</label>
+      <input placeholder="Image 5" type="text" name="image_5_photo_url" id="new-property-form__image_5">
+
+      <label for="new-property-form__image_6">Image 6</label>
+      <input placeholder="Image 6" type="text" name="image_6_photo_url" id="new-property-form__image_6">
+
+    </div>
 
       <hr>
-
-      <div class="new-property-form__field-wrapper">
-          <label for="new-property-form__street">Street</label>
-          <input placeholder="Street" type="text" name="street" id="new-property-form__street" />
-        </div>
-
-        <div class="new-property-form__field-wrapper">
-          <label for="new-property-form__country">Country</label>
-          <select id="new-property-form__country" name="country" data-country-selected="CA">
-              <option value="US">United States</option>
-              <option value="CA">Canada</option>
-              <option value="BR">Brazil</option>
-          </select>
-        </div>
-        <div id="new-property-form__locality-fields">
-
-          <div class="new-property-form__field-wrapper">
-            <label for="new-property-form__city">City</label>
-            <input placeholder="City" type="text" name="city" id="new-property-form__city" />
-          </div>
-          <div class="new-property-form__field-wrapper">
-            <label for="new-property-form__state">Administrative Area</label>
-            <input placeholder="Administrative Area" type="text" name="province" id="new-property-form__state" />
-          </div>
-          <div class="new-property-form__field-wrapper">
-            <label for="new-property-form__zip">Postal Code</label>
-            <input placeholder="Postal Code" type="text" name="post_code" id="new-property-form__zip" />
-          </div>
-        </div>
 
         <div class="new-property-form__field-wrapper">
             <button>Create</button>

@@ -79,32 +79,78 @@ const addUser = function(user) {
 
 /// Reservations
 
-const getAllReservations = function(guest_id, limit = 10) {
+// const getAllReservations = function(guest_id, limit = 10) {
+
+//   const queryStr = `
+//   SELECT
+//     properties.*,
+//     avg(property_reviews.rating) as average_rating
+//   FROM
+//     reservations
+//   JOIN
+//     properties ON properties.id = reservations.property_id
+//   JOIN
+//     property_reviews ON properties.id = property_reviews.property_id
+//   WHERE
+//     reservations.guest_id = $1
+//   GROUP BY
+//     properties.id,
+//     reservations.start_date
+//   ORDER BY
+//     reservations.start_date
+//   LIMIT
+//   $2;
+//   `;
+
+//   const values = [850, limit];
+
+//   // const values = [guest_id, limit];
+
+//   return db
+//     .query(queryStr, values)
+//     .then(result => result.rows)
+//     .catch(err => console.log(err.message));
+
+// };
+
+// getFavourited
+
+const getAllReservations = function(owner_id, limit = 10) {
 
   const queryStr = `
   SELECT
-    properties.*,
-    avg(property_reviews.rating) as average_rating
+    items.id,
+    owner_id,
+    title,
+    price,
+    items.description,
+    category,
+    condition,
+    city,
+    province,
+    image_1,
+    image_2,
+    image_3,
+    image_4,
+    image_5,
+    image_6
   FROM
-    reservations
+    wishlists
   JOIN
-    properties ON properties.id = reservations.property_id
+    wishlist_contents ON wishlists.id = wishlist_id
   JOIN
-    property_reviews ON properties.id = property_reviews.property_id
+    items ON wishlist_contents.item_id = items.id
+  JOIN
+    item_images ON item_images.item_id = items.id
   WHERE
-    reservations.guest_id = $1
-  GROUP BY
-    properties.id,
-    reservations.start_date
-  ORDER BY
-    reservations.start_date
+    user_id = $1
   LIMIT
-  $2;
+    $2;
   `;
 
-  const values = [850, limit];
+  // const values = [1, limit];
 
-  // const values = [guest_id, limit];
+  const values = [owner_id, limit];
 
   return db
     .query(queryStr, values)
@@ -112,6 +158,9 @@ const getAllReservations = function(guest_id, limit = 10) {
     .catch(err => console.log(err.message));
 
 };
+
+
+
 
 /// Properties
 
@@ -190,32 +239,27 @@ const getAllReservations = function(guest_id, limit = 10) {
 //     .catch(err => console.log(err.message));
 // };
 
-const getAllProperties = (options, limit = 10) => {
-
-  const queryParams = [];
-
-  let queryStr = `
-  SELECT *
-  FROM
-    items
-  JOIN
-    item_images ON item_id = items.id
-  LIMIT
-    10;
-  `;
-
-  return db
-    .query(queryStr, queryParams)
-    .then(result => result.rows)
-    .catch(err => console.log(err.message));
-};
-
 const getAllItems = (options, limit = 10) => {
 
   const queryParams = [limit];
 
   let queryStr = `
-  SELECT *
+  SELECT
+    items.id,
+    owner_id,
+    title,
+    price,
+    description,
+    category,
+    condition,
+    city,
+    province,
+    image_1,
+    image_2,
+    image_3,
+    image_4,
+    image_5,
+    image_6
   FROM
     items
   JOIN
@@ -335,13 +379,24 @@ const addItem = function(property) {
 //   addProperty,
 // };
 
+// module.exports = {
+//   db,
+//   getUserWithEmail,
+//   getUserWithId,
+//   addUser,
+//   getAllReservations,
+//   getAllProperties,
+//   addProperty,
+//   getAllItems,
+//   addItem
+// };
+
 module.exports = {
   db,
   getUserWithEmail,
   getUserWithId,
   addUser,
   getAllReservations,
-  getAllProperties,
   addProperty,
   getAllItems,
   addItem

@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get("/items", (req, res) => {
   database
-    .getAllItems(req.query, 3)
+    .getAllItems(req.query, 350)
     .then((items) => {
       // console.log(items);
       res.send({ items })})
@@ -14,6 +14,22 @@ router.get("/items", (req, res) => {
       res.send(e);
     });
 });
+
+router.get("/items/:id", (req, res) => {
+  const id = req.params.id;
+  console.log(id);
+
+  // database
+  //   .getAllItems(req.query, 350)
+  //   .then((items) => {
+  //     // console.log(items);
+  //     res.send({ items })})
+  //   .catch((e) => {
+  //     console.error(e);
+  //     res.send(e);
+  //   });
+});
+
 
 
 router.get("/reservations", (req, res) => {
