@@ -31,7 +31,8 @@ $(() => {
     <div class="read-status">Read</div>
   </div>
 </article>
-  `);
+
+`);
 
   function displayMessages(messages) {
     const convoContainer = $convo_form.find(".chat-container .messageThread");
