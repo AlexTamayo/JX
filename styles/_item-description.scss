@@ -1,0 +1,60 @@
+.item-container {
+  display: flex;
+  background-color: #f7f7f7;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  max-width: 400px;
+  height: auto;
+}
+
+.item-img {
+  flex: 1;
+  background-color: #ddd;
+  border-radius: 10px;
+}
+
+.item-info {
+  flex: 2;
+  margin-left: 10px;
+  margin-bottom: 2rem;
+}
+
+.name {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.chat {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+  padding: 5px 15px;
+  border-radius: 20px;
+}
+
+.description,
+.category,
+.condition,
+.location {
+  margin-bottom: 10px;
+}
+
+.footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+}
