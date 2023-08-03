@@ -3,7 +3,7 @@ $(() => {
 
 
   const $newPropertyForm = $(`
-  <form action="/api/properties" method="post" id="new-property-form" class="new-property-form">
+  <form action="/api/items" method="post" id="new-property-form" class="new-property-form">
       <div class="new-property-form__field-wrapper">
         <label for="new-property-form__title">Title</label>
         <input type="text" name="title" placeholder="Title" id="new-property-form__title">

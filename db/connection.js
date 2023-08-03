@@ -210,8 +210,75 @@ const getAllProperties = (options, limit = 10) => {
     .catch(err => console.log(err.message));
 };
 
+const getAllItems = (options, limit = 10) => {
+
+  const queryParams = [limit];
+
+  let queryStr = `
+  SELECT *
+  FROM
+    items
+  JOIN
+    item_images ON item_id = items.id
+  LIMIT
+    $1;
+  `;
+
+  return db
+    .query(queryStr, queryParams)
+    .then(result => result.rows)
+    .catch(err => console.log(err.message));
+};
+
 
 const addProperty = function(property) {
+
+  const queryStr = `
+    INSERT INTO
+      properties (owner_id,
+                  title,
+                  description,
+                  thumbnail_photo_url,
+                  cover_photo_url,
+                  cost_per_night,
+                  parking_spaces,
+                  number_of_bathrooms,
+                  number_of_bedrooms,
+                  country,
+                  street,
+                  city,
+                  province,
+                  post_code,
+                  active) 
+    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, true) 
+    RETURNING *;
+  `;
+
+  const values = [
+    property.owner_id,
+    property.title,
+    property.description,
+    property.thumbnail_photo_url,
+    property.cover_photo_url,
+    property.cost_per_night * 100,
+    property.parking_spaces,
+    property.number_of_bathrooms,
+    property.number_of_bedrooms,
+    property.country,
+    property.street,
+    property.city,
+    property.province,
+    property.post_code,
+  ];
+
+  return db
+    .query(queryStr, values)
+    .then(result => result.rows)
+    .catch(err => console.log(err.message));
+};
+
+
+const addItem = function(property) {
 
   const queryStr = `
     INSERT INTO
@@ -276,5 +343,7 @@ module.exports = {
   getAllReservations,
   getAllProperties,
   addProperty,
+  getAllItems,
+  addItem
 };
 

@@ -12,7 +12,7 @@ $(() => {
       userLinks = `
       <nav id="page-header__user-links" class="page-header__user-links">
         <ul>
-          <li class="home">JX</li>
+          <li class="home">🏠</li>
           <li class="search_button">Search</li>
           <li class="login_button">Log In</li>
           <li class="sign-up_button">Sign Up</li>
@@ -24,12 +24,11 @@ $(() => {
       <nav id="page-header__user-links" class="page-header__user-links">
         <ul>
           <li class="home">JX</li>
-          <li class="search_button">Search</li>
-
-          <li class="my_reservations_button">My Favourites</li>
-          <li class="create_listing_button">Post Item</li>
-          <li class="my_listing_button">Listed Items</li>
-          <li> Signed in as <em>${user.name}</em></li>
+          <li class="search_bar">Search</li>
+          <li class="create_listing_button">Post+</li>
+          <li class="my_listing_button">Favourites</li>
+          <li class="my_listing_button">Messages</li>
+          <li>${user.name}</li>
           <li class="logout_button">Log Out</li>
         </ul>
       </nav>
@@ -59,7 +58,8 @@ $(() => {
     propertyListings.clearListings();
     getAllListings(`owner_id=${currentUser.id}`)
       .then(function(json) {
-        propertyListings.addProperties(json.properties);
+        // propertyListings.addProperties(json.properties);
+        propertyListings.addProperties(json.items);
         views_manager.show('listings');
     });
   });
@@ -68,12 +68,13 @@ $(() => {
     propertyListings.clearListings();
     getAllListings()
       .then(function(json) {
-        propertyListings.addProperties(json.properties);
+        // propertyListings.addProperties(json.properties);
+        propertyListings.addProperties(json.items);
         views_manager.show('listings');
     });
   });
 
-  $('header').on('click', '.search_button', function() {
+  $('header').on('click', '.search_bar', function() {
     views_manager.show('searchProperty');
   });
 

@@ -28,8 +28,18 @@ function signUp(data) {
   });
 }
 
+// function getAllListings(params) {
+//   let url = "/api/properties";
+//   if (params) {
+//     url += "?" + params;
+//   }
+//   return $.ajax({
+//     url,
+//   });
+// }
+
 function getAllListings(params) {
-  let url = "/api/properties";
+  let url = "/api/items";
   if (params) {
     url += "?" + params;
   }
@@ -45,10 +55,18 @@ function getAllReservations() {
   });
 }
 
+// const submitProperty = function(data) {
+//   return $.ajax({
+//     method: "POST",
+//     url: "/api/properties",
+//     data,
+//   });
+// }
+
 const submitProperty = function(data) {
   return $.ajax({
     method: "POST",
-    url: "/api/properties",
+    url: "/api/items",
     data,
   });
 }
