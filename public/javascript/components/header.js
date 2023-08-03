@@ -12,13 +12,15 @@ $(() => {
       userLinks = `
       <nav id="page-header__user-links" class="page-header__user-links">
         <ul>
-          <li class="home">🏠</li>
-          <li class="search_button">Search</li>
-          <li class="login_button">Log In</li>
-          <li class="sign-up_button">Sign Up</li>
+          <li class="home-logo">JX</li>
+          <li class="home">Home</li>
+          <li class="search_bar">Search</li>
+          <li class="sign-up_button">Join now</li>
+          <li> or </li>
+          <li class="login_button">Login</li>
         </ul>
       </nav>
-      `
+      `;
     } else {
       userLinks = `
       <nav id="page-header__user-links" class="page-header__user-links">
@@ -27,7 +29,7 @@ $(() => {
           <li class="search_bar">Search</li>
           <li class="create_listing_button">Post+</li>
           <li class="my_listing_button">Favourites</li>
-          <li class="my_listing_button">Messages</li>
+          <li class="messages_button">Messages</li>
           <li>${user.name}</li>
           <li class="logout_button">Log Out</li>
         </ul>
@@ -63,7 +65,7 @@ $(() => {
         views_manager.show('listings');
     });
   });
-
+ 
   $("header").on("click", '.home', function() {
     propertyListings.clearListings();
     getAllListings()
@@ -74,6 +76,9 @@ $(() => {
     });
   });
 
+  $("header").on("click", ".messages_button", function () {
+    views_manager.show("message_inbox");
+  });
   $('header').on('click', '.search_bar', function() {
     views_manager.show('searchProperty');
   });
