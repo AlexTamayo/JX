@@ -1,22 +1,34 @@
 $(() => {
   const $convo_form = $(`
-  <article class="chat-container">
+<article class="chat-container">
+  <div class="chat__top">
+    <div class="user">
+      <div class="name">User Name</div>
+    </div>
+    <div class="status">Online</div>
+  </div>
 
-    <div class="chat__top">
-      <div class="user">
-        <div class="name">${escape(data.sender_id)}</div>
-      </div>
-      <div class="status"></div>
-   </div>
+  <div class="messageThread">
+      <div class="message sender">
+      <div class="message-content">Hello there!</div>
+      <div class="message-timestamp">2 minutes ago</div>
+    </div>
+    <div class="message recipient">
+      <div class="message-content">Hey! How are you?</div>
+      <div class="message-timestamp">1 minute ago</div>
+    </div>
+  </div>
 
-    <div class="messageThread">${escape(data.message_text)}</div>
+  <div class="send-new-message">
+    <input type="text" id="messageInput" placeholder="Type your message...">
+    <button id="sendButton">Send</button>
+  </div>
 
-   <div class="chat__bottom">
-      <div class="timestamp">${timeago.format(data.message_timestamp)}</div>
-      <div class="read-status"></div>
-   </div>
-
-  </article>
+  <div class="chat__bottom">
+    <div class="timestamp">2 hours ago</div>
+    <div class="read-status">Read</div>
+  </div>
+</article>
   `);
 
   function displayMessages(messages) {

@@ -7,7 +7,7 @@ $(() => {
     </header>
 
     <div id="conversationList">
-      <div class="convoContainer">
+      <div class="convoContainer" data-convo-id="messages.chain_id">
         <div class="convoTop">
           <div class="senderId">Josh</div>
           <div class="onlineStatus">Online</div>
@@ -18,7 +18,7 @@ $(() => {
         <div class="convoBottom">
           <div class="timeago">Sent at (timeago)</div>
           <div class="reply-form__field-wrapper">
-          <button>Reply</button></div>
+          <button id="reply-button">Reply</button></div>
         </div>
       </div>
       <div class="convoContainer">
@@ -32,7 +32,7 @@ $(() => {
         <div class="convoBottom">
           <div class="timeago">Sent at (timeago)</div>
           <div class="reply-form__field-wrapper">
-          <button>Reply</button></div>
+          <button id="reply-button">Reply</button></div>
         </div>
       </div>
 
@@ -40,8 +40,19 @@ $(() => {
 
   </article>
   `);
+
+  // Assign to global variable
   window.$message_inbox = $message_inbox;
 
+  function handleReplyClick(event) {
+    const $convoContainer = $(event.target).closest(".convoContainer");
+    const convoId = $convoContainer.data("convo-id");
+
+    views_manager.show("convo_form", convoId);
+    return false;
+  }
+
+  // Event handler
   $message_inbox.on("submit", function (event) {
     event.preventDefault();
 
@@ -54,8 +65,5 @@ $(() => {
       });
   });
 
-  $("body").on("click", "#sign-up-form__cancel", function () {
-    views_manager.show("listings");
-    return false;
-  });
+  $("body").on("click", "#reply-button", handleReplyClick);
 });
