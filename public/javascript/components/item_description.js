@@ -24,59 +24,42 @@ $(() => {
   </div>
 </article>
 
-
 `);
 
+  //   const fetchItemInfo = function () {
+  //     const queryStr = `
+  //   SELECT *
+  //   FROM
+  //     items
+  //   WHERE
+  //     id = $1;
+  //   `;
 
-  function fetchItemInfo() {
-    return $.ajax({
-      url: "db/seeds/03_2_messages.sql",
-      method: "GET",
-    });
-  }
+  //     return db
+  //       .one(sql, [itemId])
+  //       .then((item) => {
+  //         return item;
+  //       })
+  //       .catch((err) => console.log(err.message));
+  //   };
 
-  // function updateUserStatus(status) {}
-  // function updateTimestamp(time) {}
+  window.$item_description = $item_description;
 
-  function handleFormSubmit(event) {
-    event.preventDefault();
+  //   $item_description.on("submit", function (event) {
+  //     event.preventDefault();
 
-    const replyInput = $convo_form.find(".replyInput");
-    const reply = replyInput.val().trim();
+  //     const data = $(this).serialize();
+  //     signUp(data)
+  //       .then(getMyDetails)
+  //       .then((json) => {
+  //         header.update(json.user);
+  //         views_manager.show("messages");
+  //       });
+  //   });
 
-    if (reply !== "") {
-      const newMessage = { user: "User1", text: reply }; // replace User1
-      message.push(newMessage);
-    }
-  }
-
-  // Bind form submit event
-  $("#message").on("submit", handleFormSubmit);
-
-  fetchMessage()
-    .then((dbMessages) => {
-      displayMessages(dbMessages);
-    })
-    .catch((error) => {
-      console.error("Error fetching messages", error);
-    });
-
-  window.$convo_form = $convo_form;
-
-  $convo_form.on("submit", function (event) {
-    event.preventDefault();
-
-    const data = $(this).serialize();
-    signUp(data)
-      .then(getMyDetails)
-      .then((json) => {
-        header.update(json.user);
-        views_manager.show("messages");
-      });
-  });
-
-  $("body").on("click", "#sign-up-form__cancel", function () {
-    views_manager.show("listings");
-    return false;
-  });
+  //   $("body").on("click", "#sign-up-form__cancel", function () {
+  //     views_manager.show("listings");
+  //     return false;
+  //   });
+  
 });
