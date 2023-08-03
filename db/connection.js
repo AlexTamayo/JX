@@ -113,9 +113,9 @@ const addUser = function(user) {
 
 // };
 
-// getFavourited
+// getFavouritedItems
 
-const getAllReservations = function(owner_id, limit = 10) {
+const getFavouritedItems = function(owner_id, limit = 10) {
 
   const queryStr = `
   SELECT
@@ -391,12 +391,23 @@ const addItem = function(property) {
 //   addItem
 // };
 
+// module.exports = {
+//   db,
+//   getUserWithEmail,
+//   getUserWithId,
+//   addUser,
+//   getAllReservations,
+//   addProperty,
+//   getAllItems,
+//   addItem
+// };
+
 module.exports = {
   db,
   getUserWithEmail,
   getUserWithId,
   addUser,
-  getAllReservations,
+  getFavouritedItems,
   addProperty,
   getAllItems,
   addItem

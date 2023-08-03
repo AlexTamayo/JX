@@ -28,15 +28,6 @@ function signUp(data) {
   });
 }
 
-// function getAllListings(params) {
-//   let url = "/api/properties";
-//   if (params) {
-//     url += "?" + params;
-//   }
-//   return $.ajax({
-//     url,
-//   });
-// }
 
 function getAllListings(params) {
   let url = "/api/items";
@@ -48,20 +39,13 @@ function getAllListings(params) {
   });
 }
 
-function getAllReservations() {
-  let url = "/api/reservations";
+function getFavouritedItems() {
+  let url = "/api/favourited";
   return $.ajax({
     url,
   });
 }
 
-// const submitProperty = function(data) {
-//   return $.ajax({
-//     method: "POST",
-//     url: "/api/properties",
-//     data,
-//   });
-// }
 
 const submitProperty = function(data) {
   return $.ajax({
