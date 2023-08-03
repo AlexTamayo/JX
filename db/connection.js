@@ -292,7 +292,7 @@ const addItem = function(item) {
 
   console.log(item);
 
-  const queryStr = `
+  const queryStr_item = `
   INSERT INTO
     items (owner_id,
            title,
@@ -306,32 +306,52 @@ const addItem = function(item) {
   RETURNING *;
   `;
 
-  const values_item = [
-    item.owner_id,
-    item.title,
-    item.description,
-    item.price,
-    item.condition,
-    item.city,
-    item.province,
-    item.postal_code
-  ];
+  
+    const values_item = [
+      item.owner_id,
+      item.title,
+      item.description,
+      item.price,
+      item.condition,
+      item.city,
+      item.province,
+      item.postal_code
+    ];
 
-  const values_item_images = [
-    // item_id,
-    item.image_1,
-    item.image_2,
-    item.image_3,
-    item.image_4,
-    item.image_5,
-    item.image_6
-  ];
+
+  const queryStr_item_images = `
+    INSERT INTO
+      item_images (item_id, image_1, image_2, image_3, image_4, image_5, image_6) 
+    VALUES ($1, $2, $3, $4, $5, $6, $7);
+  `;
+
+  // const values_item_images = [
+  //   item_id,
+  //   item.image_1,
+  //   item.image_2,
+  //   item.image_3,
+  //   item.image_4,
+  //   item.image_5,
+  //   item.image_6
+  // ];
 
   return db
-    .query(queryStr, values_item)
+    .query(queryStr_item, values_item)
     .then(result => {
       console.log(result.rows);
-      result.rows})
+
+      const values_item_images = [
+        result.rows[0].id,
+        item.image_1,
+        item.image_2,
+        item.image_3,
+        item.image_4,
+        item.image_5,
+        item.image_6
+      ];
+
+      db.query(queryStr_item_images, values_item_images)
+      return result.rows})
     .catch(err => console.log(err.message));
 };
 

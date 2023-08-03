@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get("/items", (req, res) => {
   database
-    .getAllItems(req.query, 350)
+    .getAllItems(req.query, 370)
     .then((items) => {
       // console.log(items);
       res.send({ items })})

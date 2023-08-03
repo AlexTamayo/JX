@@ -8,7 +8,7 @@ $(() => {
       // $(this).css('background-color', 'yellow')
       // console.log("Item ID: ", itemId);
       // views_manager.show('searchProperty')
-      $.get("/items/" + itemId)
+      $.get("/api/items/" + itemId)
   })
 }
 

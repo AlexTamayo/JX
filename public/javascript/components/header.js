@@ -33,7 +33,7 @@ $(() => {
           <li class="home">JX</li>
           <li class="search_bar">Search</li>
           <li class="create_listing_button">Post+</li>
-          <li class="my_reservations_button">Favourites</li>
+          <li class="favourites">Favourites</li>
           <li class="messages_button">Messages</li>
           <li>${user.name}</li>
           <li class="logout_button">Log Out</li>
@@ -52,7 +52,7 @@ $(() => {
     updateHeader(json.user);
   });
 
-  $("header").on("click", '.my_reservations_button', function() {
+  $("header").on("click", '.favourites', function() {
     propertyListings.clearListings();
     getFavouritedItems()
       .then(function(json) {
