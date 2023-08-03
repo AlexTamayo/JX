@@ -1,6 +1,5 @@
--- Drop and recreate Users table (Example)
-
 DROP TABLE IF EXISTS message_chains CASCADE;
+DROP TABLE IF EXISTS message_chains_id_seq CASCADE;
 CREATE TABLE message_chains (
   id SERIAL PRIMARY KEY NOT NULL,
   reciever_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
@@ -10,6 +9,7 @@ CREATE TABLE message_chains (
 
 
 DROP TABLE IF EXISTS messages CASCADE;
+DROP TABLE IF EXISTS messages_id_seq CASCADE;
 CREATE TABLE messages (
   id SERIAL PRIMARY KEY NOT NULL,
   chain_id INTEGER REFERENCES message_chains(id) ON DELETE CASCADE,

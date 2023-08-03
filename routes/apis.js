@@ -46,16 +46,35 @@ router.get("/favourited", (req, res) => {
     });
 });
 
+// router.post("/items", (req, res) => {
+//   const userId = req.session.userId;
+//   if (!userId) {
+//     return res.send({ error: "error" });
+//   }
+
+//   const newProperty = req.body;
+//   newProperty.owner_id = userId;
+//   database
+//     .addProperty(newProperty)
+//     .then((property) => {
+//       res.send(property);
+//     })
+//     .catch((e) => {
+//       console.error(e);
+//       res.send(e);
+//     });
+// });
+
 router.post("/items", (req, res) => {
   const userId = req.session.userId;
   if (!userId) {
     return res.send({ error: "error" });
   }
 
-  const newProperty = req.body;
-  newProperty.owner_id = userId;
+  const newItem = req.body;
+  newItem.owner_id = userId;
   database
-    .addProperty(newProperty)
+    .addItem(newItem)
     .then((property) => {
       res.send(property);
     })

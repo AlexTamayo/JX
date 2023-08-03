@@ -63,26 +63,26 @@ $(() => {
       <div class="new-property-form__field-wrapper">
 
         <label for="new-property-form__image_1">Image 1</label>
-        <input placeholder="Image 1" type="text" name="image_1_photo_url" id="new-property-form__image_1">
+        <input placeholder="Image 1" type="text" name="image_1" id="new-property-form__image_1">
 
         <label for="new-property-form__image_2">Image 2</label>
-        <input placeholder="Image 2" type="text" name="image_2_photo_url" id="new-property-form__image_2">
+        <input placeholder="Image 2" type="text" name="image_2" id="new-property-form__image_2">
 
         <label for="new-property-form__image_3">Image 3</label>
-        <input placeholder="Image 3" type="text" name="image_3_photo_url" id="new-property-form__image_3">
+        <input placeholder="Image 3" type="text" name="image_3" id="new-property-form__image_3">
 
       </div>
 
       <div class="new-property-form__field-wrapper">
 
       <label for="new-property-form__image_4">Image 4</label>
-      <input placeholder="Image 4" type="text" name="image_4_photo_url" id="new-property-form__image_4">
+      <input placeholder="Image 4" type="text" name="image_4" id="new-property-form__image_4">
 
       <label for="new-property-form__image_5">Image 5</label>
-      <input placeholder="Image 5" type="text" name="image_5_photo_url" id="new-property-form__image_5">
+      <input placeholder="Image 5" type="text" name="image_5" id="new-property-form__image_5">
 
       <label for="new-property-form__image_6">Image 6</label>
-      <input placeholder="Image 6" type="text" name="image_6_photo_url" id="new-property-form__image_6">
+      <input placeholder="Image 6" type="text" name="image_6" id="new-property-form__image_6">
 
     </div>
 

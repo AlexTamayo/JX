@@ -1,6 +1,5 @@
--- Drop and recreate Users table (Example)
-
 DROP TABLE IF EXISTS items CASCADE;
+DROP TABLE IF EXISTS items_id_seq CASCADE;
 CREATE TABLE items (
   id SERIAL PRIMARY KEY NOT NULL,
   owner_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
@@ -9,8 +8,8 @@ CREATE TABLE items (
   price INTEGER NOT NULL,
   condition INTEGER NOT NULL,
   quantity INTEGER NOT NULL DEFAULT 1,
-  list_date TIMESTAMP NOT NULL,
-  category VARCHAR(255) NOT NULL,
+  list_date TIMESTAMP,
+  category VARCHAR(255),
   city VARCHAR(255),
   province VARCHAR(255),
   postal_code VARCHAR(255),
@@ -19,6 +18,7 @@ CREATE TABLE items (
 );
 
 DROP TABLE IF EXISTS item_images CASCADE;
+DROP TABLE IF EXISTS item_images_id_seq CASCADE;
 CREATE TABLE item_images (
   id SERIAL PRIMARY KEY NOT NULL,
   item_id INTEGER REFERENCES items(id) ON DELETE CASCADE,

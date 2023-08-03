@@ -1,6 +1,5 @@
--- Drop and recreate Users table (Example)
-
 DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS users_id_seq CASCADE;
 CREATE TABLE users (
   id SERIAL PRIMARY KEY NOT NULL,
   name VARCHAR(255) NOT NULL,
@@ -13,6 +12,7 @@ CREATE TABLE users (
 );
 
 DROP TABLE IF EXISTS items CASCADE;
+DROP TABLE IF EXISTS items_id_seq CASCADE;
 CREATE TABLE items (
   id SERIAL PRIMARY KEY NOT NULL,
   owner_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
@@ -31,6 +31,7 @@ CREATE TABLE items (
 );
 
 DROP TABLE IF EXISTS user_reviews CASCADE;
+DROP TABLE IF EXISTS user_reviews_id_seq CASCADE;
 CREATE TABLE user_reviews (
   id SERIAL PRIMARY KEY NOT NULL,
   seller_id INTEGER REFERENCES users(id) ON DELETE CASCADE,

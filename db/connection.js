@@ -77,43 +77,7 @@ const addUser = function(user) {
     .catch(err => console.log(err.message));
 };
 
-/// Reservations
-
-// const getAllReservations = function(guest_id, limit = 10) {
-
-//   const queryStr = `
-//   SELECT
-//     properties.*,
-//     avg(property_reviews.rating) as average_rating
-//   FROM
-//     reservations
-//   JOIN
-//     properties ON properties.id = reservations.property_id
-//   JOIN
-//     property_reviews ON properties.id = property_reviews.property_id
-//   WHERE
-//     reservations.guest_id = $1
-//   GROUP BY
-//     properties.id,
-//     reservations.start_date
-//   ORDER BY
-//     reservations.start_date
-//   LIMIT
-//   $2;
-//   `;
-
-//   const values = [850, limit];
-
-//   // const values = [guest_id, limit];
-
-//   return db
-//     .query(queryStr, values)
-//     .then(result => result.rows)
-//     .catch(err => console.log(err.message));
-
-// };
-
-// getFavouritedItems
+/// Favourites
 
 const getFavouritedItems = function(owner_id, limit = 10) {
 
@@ -275,128 +239,108 @@ const getAllItems = (options, limit = 10) => {
 };
 
 
-const addProperty = function(property) {
+// const addProperty = function(property) {
 
-  const queryStr = `
-    INSERT INTO
-      properties (owner_id,
-                  title,
-                  description,
-                  thumbnail_photo_url,
-                  cover_photo_url,
-                  cost_per_night,
-                  parking_spaces,
-                  number_of_bathrooms,
-                  number_of_bedrooms,
-                  country,
-                  street,
-                  city,
-                  province,
-                  post_code,
-                  active) 
-    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, true) 
-    RETURNING *;
-  `;
+//   const queryStr = `
+//     INSERT INTO
+//       properties (owner_id,
+//                   title,
+//                   description,
+//                   thumbnail_photo_url,
+//                   cover_photo_url,
+//                   cost_per_night,
+//                   parking_spaces,
+//                   number_of_bathrooms,
+//                   number_of_bedrooms,
+//                   country,
+//                   street,
+//                   city,
+//                   province,
+//                   post_code,
+//                   active) 
+//     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, true) 
+//     RETURNING *;
+//   `;
 
-  const values = [
-    property.owner_id,
-    property.title,
-    property.description,
-    property.thumbnail_photo_url,
-    property.cover_photo_url,
-    property.cost_per_night * 100,
-    property.parking_spaces,
-    property.number_of_bathrooms,
-    property.number_of_bedrooms,
-    property.country,
-    property.street,
-    property.city,
-    property.province,
-    property.post_code,
-  ];
+//   const values = [
+//     property.owner_id,
+//     property.title,
+//     property.description,
+//     property.thumbnail_photo_url,
+//     property.cover_photo_url,
+//     property.cost_per_night * 100,
+//     property.parking_spaces,
+//     property.number_of_bathrooms,
+//     property.number_of_bedrooms,
+//     property.country,
+//     property.street,
+//     property.city,
+//     property.province,
+//     property.post_code,
+//   ];
 
-  return db
-    .query(queryStr, values)
-    .then(result => result.rows)
-    .catch(err => console.log(err.message));
-};
-
-
-const addItem = function(property) {
-
-  const queryStr = `
-    INSERT INTO
-      properties (owner_id,
-                  title,
-                  description,
-                  thumbnail_photo_url,
-                  cover_photo_url,
-                  cost_per_night,
-                  parking_spaces,
-                  number_of_bathrooms,
-                  number_of_bedrooms,
-                  country,
-                  street,
-                  city,
-                  province,
-                  post_code,
-                  active) 
-    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, true) 
-    RETURNING *;
-  `;
-
-  const values = [
-    property.owner_id,
-    property.title,
-    property.description,
-    property.thumbnail_photo_url,
-    property.cover_photo_url,
-    property.cost_per_night * 100,
-    property.parking_spaces,
-    property.number_of_bathrooms,
-    property.number_of_bedrooms,
-    property.country,
-    property.street,
-    property.city,
-    property.province,
-    property.post_code,
-  ];
-
-  return db
-    .query(queryStr, values)
-    .then(result => result.rows)
-    .catch(err => console.log(err.message));
-};
-
-// module.exports = db;
-
-// module.exports = {
-//   getUserWithEmail,
-//   getUserWithId,
-//   addUser,
-//   getAllReservations,
-//   getAllProperties,
-//   addProperty,
+//   return db
+//     .query(queryStr, values)
+//     .then(result => {
+//       console.log(result.rows);
+//       result.rows})
+//     .catch(err => console.log(err.message));
 // };
+
+
+const addItem = function(item) {
+
+  console.log(item);
+
+  const queryStr = `
+  INSERT INTO
+    items (owner_id,
+           title,
+           description,
+           price,
+           condition,
+           city,
+           province,
+           postal_code)
+  VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+  RETURNING *;
+  `;
+
+  const values_item = [
+    item.owner_id,
+    item.title,
+    item.description,
+    item.price,
+    item.condition,
+    item.city,
+    item.province,
+    item.postal_code
+  ];
+
+  const values_item_images = [
+    // item_id,
+    item.image_1,
+    item.image_2,
+    item.image_3,
+    item.image_4,
+    item.image_5,
+    item.image_6
+  ];
+
+  return db
+    .query(queryStr, values_item)
+    .then(result => {
+      console.log(result.rows);
+      result.rows})
+    .catch(err => console.log(err.message));
+};
 
 // module.exports = {
 //   db,
 //   getUserWithEmail,
 //   getUserWithId,
 //   addUser,
-//   getAllReservations,
-//   getAllProperties,
-//   addProperty,
-//   getAllItems,
-//   addItem
-// };
-
-// module.exports = {
-//   db,
-//   getUserWithEmail,
-//   getUserWithId,
-//   addUser,
-//   getAllReservations,
+//   getFavouritedItems,
 //   addProperty,
 //   getAllItems,
 //   addItem
@@ -408,7 +352,6 @@ module.exports = {
   getUserWithId,
   addUser,
   getFavouritedItems,
-  addProperty,
   getAllItems,
   addItem
 };
