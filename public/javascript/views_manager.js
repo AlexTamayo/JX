@@ -19,11 +19,12 @@ $(() => {
     $logInForm.detach();
     $signUpForm.detach();
     $message_inbox.detach();
+    // $convo_form.detach();
 
     switch (item) {
       case "listings":
         $propertyListings.appendTo($main);
-        listing_select()
+        listing_select();
         break;
       case "newProperty":
         $newPropertyForm.appendTo($main);
@@ -40,6 +41,9 @@ $(() => {
       case "message_inbox":
         $message_inbox.appendTo($main);
         break;
+      // case "convo_form":
+      //   $message_inbox.appendTo($main);
+      //   break;
       case "error": {
         const $error = $(`<p>${arguments[1]}</p>`);
         $error.appendTo("body");
