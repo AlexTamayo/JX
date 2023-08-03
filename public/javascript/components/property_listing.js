@@ -3,7 +3,7 @@ $(() => {
   
   function createListing(item, isReservation) {
     return `
-    <article class="property-listing">
+    <article class="property-listing" id="property-${item.id}" >
         <section class="property-listing__preview-image">
           <img src="${item.image_1}" alt="house">
         </section>
@@ -25,5 +25,4 @@ $(() => {
   }
 
   window.propertyListing.createListing = createListing;
-
 });

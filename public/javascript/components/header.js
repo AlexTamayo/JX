@@ -93,5 +93,6 @@ $(() => {
   $('header').on('click', '.create_listing_button', function() {
     views_manager.show('newProperty');
   });
+  $('.property-listings').click( function () {console.log('test');})
 
 });
