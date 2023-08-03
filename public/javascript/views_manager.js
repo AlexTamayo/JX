@@ -1,44 +1,45 @@
 $(() => {
-
-  const $main = $('#main-content');
+  const $main = $("#main-content");
 
   window.views_manager = {};
 
-  window.views_manager.show = function(item) {
+  window.views_manager.show = function (item) {
     $newPropertyForm.detach();
     $propertyListings.detach();
     $searchPropertyForm.detach();
     $logInForm.detach();
     $signUpForm.detach();
-    // $message_inbox.detach();
+    $message_inbox.detach();
 
     switch (item) {
-      case 'listings':
+      case "listings":
         $propertyListings.appendTo($main);
         break;
-      case 'newProperty':
+      case "newProperty":
         $newPropertyForm.appendTo($main);
         break;
-      case 'searchProperty':
+      case "searchProperty":
         $searchPropertyForm.appendTo($main);
         break;
-      case 'logIn':
+      case "logIn":
         $logInForm.appendTo($main);
         break;
-      case 'signUp':
+      case "signUp":
         $signUpForm.appendTo($main);
         break;
-      case 'error': {
+      case "message_inbox":
+        $message_inbox.appendTo($main);
+        break;
+      case "error": {
         const $error = $(`<p>${arguments[1]}</p>`);
-        $error.appendTo('body');
+        $error.appendTo("body");
         setTimeout(() => {
           $error.remove();
-          views_manager.show('listings');
+          views_manager.show("listings");
         }, 2000);
 
         break;
       }
     }
-  }
-
+  };
 });
