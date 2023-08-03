@@ -4,35 +4,41 @@ $(() => {
 
     <div class="chat__top">
       <div class="user">
-        <img src="${escape(data.user.avatars)}" alt="avatar">
-        <div class="name">${escape(data.user.name)}</div>
+        <div class="name">${escape(data.sender_id)}</div>
       </div>
-      <div class="status">
-        ${escape(data.user.onlineStatus)}
-     </div>
+      <div class="status"></div>
    </div>
 
-    <div class="convoContainer">${escape(data.content.text)}</div>
+    <div class="messageThread">${escape(data.message_text)}</div>
 
    <div class="chat__bottom">
-      <div class="timestamp">${timeago.format(data.created_at)}</div>
-      <div class="read-status">${escape(data.readStatus)}</div>
+      <div class="timestamp">${timeago.format(data.message_timestamp)}</div>
+      <div class="read-status"></div>
    </div>
 
   </article>
   `);
 
-
   function displayMessages(messages) {
-    const convoContainer = $convo_form.find(".convoContainer");
+    const convoContainer = $convo_form.find(".chat-container .messageThread");
     convoContainer.empty();
 
     messages.forEach((message) => {
-      const messageElement = $("").addClass("message");
-      messageElement.text(`${escape(message.user)}: ${escape(message.text)}`);
+      const messageElement = $("<div>").addClass("message");
+      messageElement.text(`${escape(message.message_text)}`);
       convoContainer.append(messageElement);
     });
   }
+
+  function fetchMessage() {
+    return $.ajax({
+      url: "db/seeds/03_2_messages.sql",
+      method: "GET",
+    });
+  }
+
+  // function updateUserStatus(status) {}
+  // function updateTimestamp(time) {}
 
   function handleFormSubmit(event) {
     event.preventDefault();
@@ -41,16 +47,21 @@ $(() => {
     const reply = replyInput.val().trim();
 
     if (reply !== "") {
-      const newMessage = { user: "User1", text: reply } // replace User1 with dynamic database
+      const newMessage = { user: "User1", text: reply }; // replace User1
+      message.push(newMessage);
     }
-
   }
 
+  // Bind form submit event
+  $(".chat-container .reply").on("submit", handleFormSubmit);
 
-
-
-
-
+  fetchMessage()
+    .then((dbMessages) => {
+      displayMessages(dbMessages);
+    })
+    .catch((error) => {
+      console.error("Error fetching messages", error);
+    });
 
   window.$convo_form = $convo_form;
 
