@@ -1,31 +1,28 @@
 $(() => {
   window.propertyListing = {};
   
-  function createListing(property, isReservation) {
+  function createListing(item, isReservation) {
     return `
-    <article class="property-listing">
+    <article class="property-listing" id="property-${item.id}" >
         <section class="property-listing__preview-image">
-          <img src="${property.image_1}" alt="house">
+          <img src="${item.image_1}" alt="house">
         </section>
         <section class="property-listing__details">
-          <h3 class="property-listing__title">${property.title}</h3>
-          <ul class="property-listing__details">
-            <li>$${property.price}</li>
-            <li>number_of_bathrooms: ${property.number_of_bathrooms}</li>
-            <li>parking_spaces: ${property.parking_spaces}</li>
-          </ul>
+          <div class="property-listing__details-container">
+          <h3 class="property-listing__title">${item.title}</h3>
+          <div class="property-listing__price">$${item.price}</div>
+          <div class="property-listing__add-to-favourites">$${item.price}</div>
           ${isReservation ? 
-            `<p>${moment(property.start_date).format('ll')} - ${moment(property.end_date).format('ll')}</p>` 
+            `<p>${moment(item.start_date).format('ll')} - ${moment(item.end_date).format('ll')}</p>` 
             : ``}
           <footer class="property-listing__footer">
-            <div class="property-listing__rating">${Math.round(property.average_rating * 100) / 100}/5 stars</div>
-            <div class="property-listing__price">$${property.cost_per_night/100.0}/night</div>
+            <div class="property-listing__location">${item.city}, ${item.province}</div>
           </footer>
+          </div>
         </section>
       </article>
     `
   }
 
   window.propertyListing.createListing = createListing;
-
 });

@@ -2,6 +2,11 @@ $(() => {
   const $main = $("#main-content");
 
   window.views_manager = {};
+  const listing_select = () => {
+    $('.property-listing').click(function() {
+        $(this).css('background-color', 'blue')
+  })
+}
 
   window.views_manager.show = function (item) {
     $newPropertyForm.detach();
@@ -14,6 +19,7 @@ $(() => {
     switch (item) {
       case "listings":
         $propertyListings.appendTo($main);
+        listing_select()
         break;
       case "newProperty":
         $newPropertyForm.appendTo($main);

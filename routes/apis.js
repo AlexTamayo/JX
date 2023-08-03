@@ -5,8 +5,10 @@ const router = express.Router();
 
 router.get("/items", (req, res) => {
   database
-    .getAllItems(req.query, 20)
-    .then((items) => res.send({ items }))
+    .getAllItems(req.query, 3)
+    .then((items) => {
+      // console.log(items);
+      res.send({ items })})
     .catch((e) => {
       console.error(e);
       res.send(e);
