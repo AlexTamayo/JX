@@ -42,31 +42,24 @@ $(() => {
   window.propertyListing.createListing = createListing;
 
   function handleDelete(itemId) {
-    deleteItem(itemId)
-      .then(() => {
-        // The item has been successfully deleted
-        // Update the UI to remove the corresponding listing from the DOM
-        $(`#${itemId}`).remove();
-        alert("Item has been deleted!");
-      })
-      .catch((error) => {
-        // Handle any errors that occurred during the delete request
-        console.log("Error deleting item:", error);
-        // Show an error message to the user if needed
-        alert("Error deleting item. Please try again later.");
-      });
+    // Show a confirmation dialog to ask the user if they want to delete the item
+    const confirmDelete = confirm("Are you sure you want to delete this item?");
+    if (confirmDelete) {
+      deleteItem(itemId);
+
+      alert("Item has been deleted!");
+    }
   }
 
-  $(document).on('click', '.property-listing', function() {
-    const itemId = $(this).attr('id');
-    $.get("/api/items/" + itemId)
-      .done(function(data) {
-        // console.log("This is from click event", data);
-        // console.log(data);
-        views_manager.show("itemDescription", data);
-        // views_manager.show("itemDescription")
-      });
-  });
+  function handleSale(itemId) {
+    // Show a confirmation dialog to ask the user if they want to delete the item
+    const confirmSale = confirm("Please confirm that you have sold this item");
+    if (confirmSale) {
+      markSold(itemId);
+
+      alert("Item has been sold!");
+    }
+  }
 
   $(document).on("click", ".delete-button", function () {
     const itemId = $(this).closest(".property-listing").attr("id");
