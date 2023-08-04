@@ -69,3 +69,28 @@
   margin-bottom: 0em;
   font-size: 12px;
 }
+
+
+
+
+.property-listing__buttons-container {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.delete-button,
+.mark-sold-button {
+  border: none;
+  background-color: transparent;
+  color: #aaa;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 6px;
+  margin: 4px;
+}
+
+.delete-button:hover,
+.mark-sold-button:hover {
+  background-color: #eee;
+  color: #777;
+}

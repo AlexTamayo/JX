@@ -34,16 +34,16 @@ $(() => {
 
 `);
 
-  function displayMessages(messages) {
-    const convoContainer = $convoForm.find(".chat-container .messageThread");
-    convoContainer.empty();
+  // function displayMessages(messages) {
+  //   const convoContainer = $convoForm.find(".chat-container .messageThread");
+  //   convoContainer.empty();
 
-    messages.forEach((message) => {
-      const messageElement = $("<div>").addClass("message");
-      messageElement.text(`${escape(message.message_text)}`);
-      convoContainer.append(messageElement);
-    });
-  }
+  //   messages.forEach((message) => {
+  //     const messageElement = $("<div>").addClass("message");
+  //     messageElement.text(`${escape(message.message_text)}`);
+  //     convoContainer.append(messageElement);
+  //   });
+  // }
 
   function fetchMessage() {
     return $.ajax({
@@ -70,13 +70,13 @@ $(() => {
   // Bind form submit event
   $("#message").on("submit", handleFormSubmit);
 
-  fetchMessage()
-    .then((dbMessages) => {
-      displayMessages(dbMessages);
-    })
-    .catch((error) => {
-      console.error("Error fetching messages", error);
-    });
+  // fetchMessage()
+  //   .then((dbMessages) => {
+  //     displayMessages(dbMessages);
+  //   })
+  //   .catch((error) => {
+  //     console.error("Error fetching messages", error);
+  //   });
 
   window.$convoForm = $convoForm;
 
