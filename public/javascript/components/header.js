@@ -61,7 +61,8 @@ $(() => {
     propertyListings.clearListings();
     getFavouritedItems()
       .then(function(json) {
-        propertyListings.addProperties(json.reservations, true);
+        // propertyListings.addProperties(json.reservations, true);
+        propertyListings.addProperties(json.favourites, true);
         views_manager.show('listings');
       })
       .catch(error => console.error(error));
@@ -88,7 +89,7 @@ $(() => {
   });
 
   $("header").on("click", ".messages_button", function () {
-    views_manager.show("message_inbox");
+    views_manager.show("messageInbox");
   });
   $('header').on('click', '.search_bar', function() {
     views_manager.show('searchProperty');

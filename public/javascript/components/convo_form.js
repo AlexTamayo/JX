@@ -1,7 +1,7 @@
 // const users = require('../../../db/queries/users')
 
 $(() => {
-  const $convo_form = $(`
+  const $convoForm = $(`
 <article class="chat-container">
   <div class="chat__top">
     <div class="user">
@@ -35,7 +35,7 @@ $(() => {
 `);
 
   function displayMessages(messages) {
-    const convoContainer = $convo_form.find(".chat-container .messageThread");
+    const convoContainer = $convoForm.find(".chat-container .messageThread");
     convoContainer.empty();
 
     messages.forEach((message) => {
@@ -47,7 +47,7 @@ $(() => {
 
   function fetchMessage() {
     return $.ajax({
-      url: "db/seeds/03_2_messages.sql",
+      // url: "db/seeds/03_2_messages.sql",
       method: "GET",
     });
   }
@@ -58,7 +58,7 @@ $(() => {
   function handleFormSubmit(event) {
     event.preventDefault();
 
-    const replyInput = $convo_form.find(".replyInput");
+    const replyInput = $convoForm.find(".replyInput");
     const reply = replyInput.val().trim();
 
     if (reply !== "") {
@@ -78,9 +78,9 @@ $(() => {
       console.error("Error fetching messages", error);
     });
 
-  window.$convo_form = $convo_form;
+  window.$convoForm = $convoForm;
 
-  $convo_form.on("submit", function (event) {
+  $convoForm.on("submit", function (event) {
     event.preventDefault();
 
     const data = $(this).serialize();

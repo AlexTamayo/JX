@@ -1,6 +1,7 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
-const database = require("../db/connection");
+// const database = require("../db/connection");
+const database = require("../db/queries/users");
 
 const router = express.Router();
 
