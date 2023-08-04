@@ -30,11 +30,12 @@ $(() => {
         <!--  <div class="home-logo">
             <img src="../../images/JX_design_logo.png" alt="JX Home" width="5%" height="auto">
           </div> -->
-          <li class="home">JX</li>
+          <li class="home_button">JX</li>
           <li class="search_bar">Search</li>
           <li class="create_listing_button">Post+</li>
-          <li class="favourites">Favourites</li>
+          <li class="favourites_button">Favourites</li>
           <li class="messages_button">Messages</li>
+          <li class="my_listing_button">My Listings</li>
           <li>${user.name}</li>
           <li class="logout_button">Log Out</li>
         </ul>
@@ -52,7 +53,7 @@ $(() => {
     updateHeader(json.user);
   });
 
-  $("header").on("click", '.favourites', function() {
+  $("header").on("click", '.favourites_button', function() {
     propertyListings.clearListings();
     getFavouritedItems()
       .then(function(json) {
@@ -68,10 +69,11 @@ $(() => {
         // propertyListings.addProperties(json.properties);
         propertyListings.addProperties(json.items);
         views_manager.show('listings');
-    });
+    })
+    .catch(error => console.error(error));
   });
  
-  $("header").on("click", '.home', function() {
+  $("header").on("click", '.home_button', function() {
     propertyListings.clearListings();
     getAllListings()
       .then(function(json) {

@@ -5,7 +5,7 @@ $(() => {
     return `
     <article class="property-listing" id="${item.id}" >
         <section class="property-listing__preview-image">
-          <img src="${item.image_1}" alt="house">
+          <img src="${item.image_1}" alt="${item.title} Image">
         </section>
         <section class="property-listing__details">
           <div class="property-listing__details-container">

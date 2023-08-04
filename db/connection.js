@@ -203,9 +203,50 @@ const getFavouritedItems = function(owner_id, limit = 10) {
 //     .catch(err => console.log(err.message));
 // };
 
+// const getAllItems = (options, limit = 10) => {
+
+//   const queryParams = [limit];
+
+//   const whereClauses = [];
+
+//   let queryStr = `
+//   SELECT
+//     items.id,
+//     owner_id,
+//     title,
+//     price,
+//     description,
+//     category,
+//     condition,
+//     city,
+//     province,
+//     image_1,
+//     image_2,
+//     image_3,
+//     image_4,
+//     image_5,
+//     image_6
+//   FROM
+//     items
+//   JOIN
+//     item_images ON item_id = items.id
+//   ORDER BY
+//     items.id DESC
+//   LIMIT
+//   $1
+//   `;
+
+//   return db
+//     .query(queryStr, queryParams)
+//     .then(result => result.rows)
+//     .catch(err => console.log(err.message));
+// };
+
 const getAllItems = (options, limit = 10) => {
 
-  const queryParams = [limit];
+  const queryParams = [];
+
+  const whereClauses = [];
 
   let queryStr = `
   SELECT
@@ -228,64 +269,35 @@ const getAllItems = (options, limit = 10) => {
     items
   JOIN
     item_images ON item_id = items.id
+  `;
+  
+
+  if (options.owner_id) {
+    queryParams.push(`${options.owner_id}`);
+    whereClauses.push(`items.owner_id = $${queryParams.length}`);
+  }
+
+  if (whereClauses.length > 0) {
+    queryStr += ' WHERE ' + whereClauses.join(' AND ');
+  }
+
+  queryParams.push(`${limit}`);
+  queryStr += `
+  ORDER BY
+    items.id DESC
   LIMIT
-    $1;
+    $${queryParams.length};
   `;
 
   return db
     .query(queryStr, queryParams)
-    .then(result => result.rows)
+    .then(result => {
+      // console.log(queryStr);
+      // console.log(result.rows);
+
+      return result.rows})
     .catch(err => console.log(err.message));
 };
-
-
-// const addProperty = function(property) {
-
-//   const queryStr = `
-//     INSERT INTO
-//       properties (owner_id,
-//                   title,
-//                   description,
-//                   thumbnail_photo_url,
-//                   cover_photo_url,
-//                   cost_per_night,
-//                   parking_spaces,
-//                   number_of_bathrooms,
-//                   number_of_bedrooms,
-//                   country,
-//                   street,
-//                   city,
-//                   province,
-//                   post_code,
-//                   active) 
-//     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, true) 
-//     RETURNING *;
-//   `;
-
-//   const values = [
-//     property.owner_id,
-//     property.title,
-//     property.description,
-//     property.thumbnail_photo_url,
-//     property.cover_photo_url,
-//     property.cost_per_night * 100,
-//     property.parking_spaces,
-//     property.number_of_bathrooms,
-//     property.number_of_bedrooms,
-//     property.country,
-//     property.street,
-//     property.city,
-//     property.province,
-//     property.post_code,
-//   ];
-
-//   return db
-//     .query(queryStr, values)
-//     .then(result => {
-//       console.log(result.rows);
-//       result.rows})
-//     .catch(err => console.log(err.message));
-// };
 
 
 const addItem = function(item) {
@@ -325,20 +337,10 @@ const addItem = function(item) {
     VALUES ($1, $2, $3, $4, $5, $6, $7);
   `;
 
-  // const values_item_images = [
-  //   item_id,
-  //   item.image_1,
-  //   item.image_2,
-  //   item.image_3,
-  //   item.image_4,
-  //   item.image_5,
-  //   item.image_6
-  // ];
-
   return db
     .query(queryStr_item, values_item)
     .then(result => {
-      console.log(result.rows);
+      // console.log(result.rows);
 
       const values_item_images = [
         result.rows[0].id,
@@ -354,17 +356,6 @@ const addItem = function(item) {
       return result.rows})
     .catch(err => console.log(err.message));
 };
-
-// module.exports = {
-//   db,
-//   getUserWithEmail,
-//   getUserWithId,
-//   addUser,
-//   getFavouritedItems,
-//   addProperty,
-//   getAllItems,
-//   addItem
-// };
 
 module.exports = {
   db,

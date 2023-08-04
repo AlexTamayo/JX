@@ -98,17 +98,6 @@ $(() => {
 
   window.$newPropertyForm = $newPropertyForm;
 
-  $newPropertyForm.addressfield({
-    json: 'javascript/libraries/addressfield/addressfield.min.json',
-    fields: {
-      country: '#new-property-form__country',
-      locality: '#new-property-form__locality-fields',
-      localityname: '#new-property-form__city',
-      administrativearea: '#new-property-form__state',
-      postalcode: '#new-property-form__zip'
-    }
-  });
-
   $newPropertyForm.on('submit', function (event) {
     event.preventDefault();
 

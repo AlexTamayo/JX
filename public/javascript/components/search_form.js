@@ -15,11 +15,6 @@ $(() => {
       </div>
 
       <div class="search-property-form__field-wrapper">
-        <label for="search-property-form__minimum-rating">Minimum Rating</label>
-        <input type="number" name="minimum_rating" placeholder="Minimum Rating" id="search-property-form__minimum-rating">
-      </div>
-
-      <div class="search-property-form__field-wrapper">
           <button>Search</button>
           <a id="search-property-form__cancel" href="#">Cancel</a>
       </div>
