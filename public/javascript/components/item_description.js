@@ -1,6 +1,6 @@
 $(() => {
   window.itemDescription = {};
-  
+
   function createDescription(data) {
     item = data.items[0];
 
@@ -10,7 +10,7 @@ $(() => {
     //     views_manager.show("convoForm", data);
     //   });
     // });
-    
+
     return `
     <article class="item-container" id="${item.id}">
       <div class="item-img">
@@ -38,10 +38,14 @@ $(() => {
         </div>
       </div>
     </article>
-    `
+    `;
   }
 
   window.itemDescription.createDescription = createDescription;
 
+  $(document).on("click", ".chat_button", function () {
+    const itemId = $(this).closest(".item-container").attr("id");
 
+    views_manager.show("convoForm", { itemId: itemId });
+  });
 });
