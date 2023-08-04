@@ -2,7 +2,7 @@ $(() => {
   window.propertyListing = {};
 
   function createListing(item, isFavourite, ownerId) {
-    let buttonsHTML = '';
+    let buttonsHTML = "";
 
     if (ownerId === item.owner_id) {
       buttonsHTML = `
@@ -22,9 +22,15 @@ $(() => {
           <div class="property-listing__details-container">
             <h3 class="property-listing__title">${item.title}</h3>
             <div class="property-listing__price">$${item.price}</div>
-            ${isFavourite ? `<i class="fa-solid fa-heart"></i>` : `<i class="fa-regular fa-heart"></i>`}
+            ${
+              isFavourite
+                ? `<i class="fa-solid fa-heart"></i>`
+                : `<i class="fa-regular fa-heart"></i>`
+            }
             <footer class="property-listing__footer">
-              <div class="property-listing__location">${item.city}, ${item.province}</div>
+              <div class="property-listing__location">${item.city}, ${
+      item.province
+    }</div>
             </footer>
           </div>
         </section>
@@ -35,17 +41,57 @@ $(() => {
 
   window.propertyListing.createListing = createListing;
 
-
-  $(document).on('click', '.property-listing', function() {
-    const itemId = $(this).attr('id');
-    $.get("/api/items/" + itemId)
-      .done(function(data) {
-        // console.log("This is from click event", data);
-        // console.log(data);
-        views_manager.show("itemDescription", data);
-        // views_manager.show("itemDescription")
+  function handleDelete(itemId) {
+    deleteItem(itemId)
+      .then(() => {
+        // The item has been successfully deleted
+        // Update the UI to remove the corresponding listing from the DOM
+        $(`#${itemId}`).remove();
+        alert("Item has been deleted!");
+      })
+      .catch((error) => {
+        // Handle any errors that occurred during the delete request
+        console.log("Error deleting item:", error);
+        // Show an error message to the user if needed
+        alert("Error deleting item. Please try again later.");
       });
+  }
+
+  function handleSale(itemId) {
+    markSold(itemId)
+      .then(() => {
+        // The item has been successfully marked as sold
+        // Update the UI to add the "Sold" tag to the corresponding listing
+        $(`#${itemId}`).append('<span class="sold-tag">Sold</span>');
+        alert("Item has been sold!");
+      })
+      .catch((error) => {
+        // Handle any errors that occurred during the mark as sold request
+        console.log("Error marking item as sold:", error);
+        // Show an error message to the user if needed
+        alert("Error marking item as sold. Please try again later.");
+      });
+  }
+
+  $(document).on("click", ".delete-button", function () {
+    const itemId = $(this).closest(".property-listing").attr("id");
+    // Call a function to handle the delete action with the item ID
+    handleDelete(itemId);
   });
 
+  $(document).on("click", ".mark-sold-button", function () {
+    const itemId = $(this).closest(".property-listing").attr("id");
+    // Call a function to handle marking the item as sold with the item ID
+    handleSale(itemId);
+  });
 
+  // $(document).on("click", ".property-listing", function () {
+  //   const itemId = $(this).attr("id");
+  //   $.get("/api/items/" + itemId).done(function (data) {
+  //     // console.log("This is from click event", data);
+  //     // console.log(data);
+  //     views_manager.show("itemDescription", data);
+  //     // views_manager.show("itemDescription")
+  //   });
+  // });
 });

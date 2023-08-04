@@ -9,7 +9,6 @@ $(() => {
     switch (item) {
       case "listings":
         $propertyListings.appendTo($main);
-        listing_select();
         break;
       case "newProperty":
         $newPropertyForm.appendTo($main);
