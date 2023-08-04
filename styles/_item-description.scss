@@ -48,14 +48,10 @@
   margin-bottom: 10px;
 }
 
-.footer {
+.footer { // this needs a bit of tinkering still
   margin-top: auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-}
-
-.footer {
-  display: flex;
-  flex-direction: column;
+  justify-content: space-between;
 }

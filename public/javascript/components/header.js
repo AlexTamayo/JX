@@ -12,14 +12,17 @@ $(() => {
       userLinks = `
       <nav id="page-header__user-links" class="page-header__user-links">
         <ul>
-        <!--  <li class="home-logo">
-            <img src="../../images/JX_design_logo.png" alt="JX Home">
-          </li> -->
-          <li class="home">JX</li>
+         <li class="home_button">
+            <div class="home-logo">
+              <img src="../../images/JX_design_logo.png" alt="JX Home" width="5%" height="auto">
+            </div>
+          </li>
           <li class="search_bar">Search</li>
-          <li class="sign-up_button">Join now</li>
-          <li> or </li>
-          <li class="login_button">Login</li>
+          <li class="joinLog">
+            <li class="sign-up_button">Join now</li>
+            <li>or</li>
+            <li class="login_button">Login</li>
+          </li>
         </ul>
       </nav>
       `;
@@ -27,10 +30,11 @@ $(() => {
       userLinks = `
       <nav id="page-header__user-links" class="page-header__user-links">
         <ul>
-        <!--  <div class="home-logo">
-            <img src="../../images/JX_design_logo.png" alt="JX Home" width="5%" height="auto">
-          </div> -->
-          <li class="home_button">JX</li>
+          <li class="home_button">
+            <div class="home-logo">
+              <img src="../../images/JX_design_logo.png" alt="JX Home" width="5%" height="auto">
+            </div>
+          </li>
           <li class="search_bar">Search</li>
           <li class="create_listing_button">Post+</li>
           <li class="favourites_button">Favourites</li>
@@ -73,7 +77,7 @@ $(() => {
     })
     .catch(error => console.error(error));
   });
- 
+
   $("header").on("click", '.home_button', function() {
     propertyListings.clearListings();
     getAllListings()
