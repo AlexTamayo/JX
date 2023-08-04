@@ -4,7 +4,7 @@
   width: 70%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 5em;
+  margin-top: 7em;
   justify-content: space-between;
   caret-color: transparent;
 }
@@ -16,7 +16,7 @@
   height: 15em;
   border-radius: 25px;
   box-sizing: border-box;
-  padding: 10px;
+  // padding: 10px;
   display: flex;
   flex-direction: row;
   overflow: hidden;
@@ -35,10 +35,11 @@
   // border-radius: 5px;
   object-fit: cover;
   // margin-bottom: 10px;
-
+  transform: translate(-15%, -15%);
 }
 
 .property-listing__title {
+  // margin-top: -5em;
   font-size: 16px;
   font-weight: bold;
 }
@@ -49,17 +50,22 @@
 
 
 .property-listing__details {
+  display: flex;
   flex: 45%;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  // height: 100%;
+  // margin-top: 0px;
+  // margin-bottom: 0px;
+  // height: 150%;
   background-color: #fff;
   position: relative;
+  align-items: center;
   z-index: 2;
   font-family: Arial, Helvetica, sans-serif;
+  // transform: translate(0%, -5%);
 }
 
 .property-listing__details-container {
+  display: flex;
+  flex-direction: column;
   margin-left: 1em;
 }
 

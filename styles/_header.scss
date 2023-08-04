@@ -7,6 +7,7 @@
   align-items: center;
   border-bottom: 3px solid #FAF9F6;
   position: fixed;
+  color: #342942;
   top: 0;
   left: 0;
   width: 100%;
@@ -34,19 +35,34 @@
   align-items: center;
 }
 
+.home_button {
+  display: flex;
+}
+
 .home-logo {
   display: flex;
   align-items: center;
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
-  font-size: 20px;
 }
 
 .home-logo img {
-  width: 50px;
-  height: 50px;
+  width: 3.5em;
+  // width: 50px;
+  // height: 50px;
   margin-right: 10px;
+}
+
+.user-logo {
+  display: flex;
+  align-items: center;
+
+}
+
+.user-logo img {
+  width: 3.5em;
+  // width: 50px;
+  // height: 50px;
+  margin-left: -15px;
+  margin-right: -15px;
 }
 
 .page-header__user-links ul li.search_bar {

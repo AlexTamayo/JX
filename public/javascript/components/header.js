@@ -40,7 +40,12 @@ $(() => {
           <li class="favourites_button">Favourites</li>
           <li class="messages_button">Messages</li>
           <li class="my_listing_button">My Listings</li>
-          <li>${user.name}</li>
+          <li>@${user.username}</li>
+          <li class="user_button">
+            <div class="user-logo">
+              <img src="${user.profile_image}" alt="${user.name}" width="5%" height="auto">
+            </div>
+          </li>
           <li class="logout_button">Log Out</li>
         </ul>
       </nav>

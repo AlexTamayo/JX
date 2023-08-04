@@ -72,6 +72,8 @@ router.get("/me", (req, res) => {
           name: user.name,
           email: user.email,
           id: userId,
+          username: user.username,
+          profile_image: user.profile_image
         },
       });
     })
