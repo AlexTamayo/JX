@@ -57,21 +57,16 @@ $(() => {
       });
   }
 
-  function handleSale(itemId) {
-    markSold(itemId)
-      .then(() => {
-        // The item has been successfully marked as sold
-        // Update the UI to add the "Sold" tag to the corresponding listing
-        $(`#${itemId}`).append('<span class="sold-tag">Sold</span>');
-        alert("Item has been sold!");
-      })
-      .catch((error) => {
-        // Handle any errors that occurred during the mark as sold request
-        console.log("Error marking item as sold:", error);
-        // Show an error message to the user if needed
-        alert("Error marking item as sold. Please try again later.");
+  $(document).on('click', '.property-listing', function() {
+    const itemId = $(this).attr('id');
+    $.get("/api/items/" + itemId)
+      .done(function(data) {
+        // console.log("This is from click event", data);
+        // console.log(data);
+        views_manager.show("itemDescription", data);
+        // views_manager.show("itemDescription")
       });
-  }
+  });
 
   $(document).on("click", ".delete-button", function () {
     const itemId = $(this).closest(".property-listing").attr("id");
