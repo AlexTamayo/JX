@@ -1,5 +1,5 @@
 $(() => {
-  const $message_inbox = $(`
+  const $messageInbox = $(`
   <article>
     <header>
       <h1>My Inbox</h1>
@@ -42,18 +42,18 @@ $(() => {
   `);
 
   // Assign to global variable
-  window.$message_inbox = $message_inbox;
+  window.$messageInbox = $messageInbox;
 
   function handleReplyClick(event) {
     const $convoContainer = $(event.target).closest(".convoContainer");
     const convoId = $convoContainer.data("convo-id");
 
-    views_manager.show("convo_form", convoId);
+    views_manager.show("convoForm", convoId);
     return false;
   }
 
   // Event handler
-  $message_inbox.on("submit", function (event) {
+  $messageInbox.on("submit", function (event) {
     event.preventDefault();
 
     const data = $(this).serialize();

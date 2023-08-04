@@ -98,6 +98,11 @@ const getAllItems = (options, limit = 10) => {
     whereClauses.push(`price <= $${queryParams.length}`);
   }
 
+  if (options.id) {
+    queryParams.push(`${options.id}`);
+    whereClauses.push(`items.id = $${queryParams.length}`);
+  }
+
   if (whereClauses.length > 0) {
     queryStr += ' WHERE ' + whereClauses.join(' AND ');
   }
@@ -120,6 +125,45 @@ const getAllItems = (options, limit = 10) => {
     .catch(err => console.log(err.message));
 };
 
+
+const getItemDescription = function (item_id) {
+  const queryStr = `
+  SELECT
+    items.id,
+    owner_id,
+    title,
+    price,
+    description,
+    category,
+    condition,
+    city,
+    province,
+    list_date,
+    image_1,
+    image_2,
+    image_3,
+    image_4,
+    image_5,
+    image_6,
+    users.name,
+    users.username
+  FROM
+    items
+  JOIN
+    item_images ON item_id = items.id
+  JOIN
+    users ON owner_id = users.id
+  WHERE
+    items.id = $1;
+  `;
+
+  const values = [item_id];
+
+  return db
+    .query(queryStr, values)
+    .then(result => result.rows)
+    .catch(err => console.log(err.message));
+}
 
 const addItem = function(item) {
 
@@ -182,5 +226,6 @@ const addItem = function(item) {
 module.exports = {
   getFavouritedItems,
   getAllItems,
-  addItem
+  addItem,
+  getItemDescription
 };

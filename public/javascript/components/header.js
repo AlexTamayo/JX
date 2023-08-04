@@ -85,7 +85,7 @@ $(() => {
   });
 
   $("header").on("click", ".messages_button", function () {
-    views_manager.show("message_inbox");
+    views_manager.show("messageInbox");
   });
   $('header').on('click', '.search_bar', function() {
     views_manager.show('searchProperty');

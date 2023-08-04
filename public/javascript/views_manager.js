@@ -9,18 +9,25 @@ $(() => {
       // console.log("Item ID: ", itemId);
       // views_manager.show('searchProperty')
       $.get("/api/items/" + itemId)
+      .done(function(data) {
+        // console.log("This is from click event", data);
+        console.log(data);
+        views_manager.show("itemDescription", data)
+        // views_manager.show("itemDescription")
+      })
   })
 }
 
-  window.views_manager.show = function (item) {
-    $newPropertyForm.detach();
-    $propertyListings.detach();
-    $searchPropertyForm.detach();
-    $logInForm.detach();
-    $signUpForm.detach();
-    $message_inbox.detach();
-    $convo_form.detach();
-    $item_description.detach();
+  window.views_manager.show = function (item, data) {
+    $main.children().detach();
+    // $newPropertyForm.detach();
+    // $propertyListings.detach();
+    // $searchPropertyForm.detach();
+    // $logInForm.detach();
+    // $signUpForm.detach();
+    // $messageInbox.detach();
+    // $convoForm.detach();
+    // $itemDescription.detach();
 
     switch (item) {
       case "listings":
@@ -39,14 +46,18 @@ $(() => {
       case "signUp":
         $signUpForm.appendTo($main);
         break;
-      case "message_inbox":
-        $message_inbox.appendTo($main);
+      case "messageInbox":
+        $messageInbox.appendTo($main);
         break;
-      case "convo_form":
-        $convo_form.appendTo($main);
+      case "convoForm":
+        $convoForm.appendTo($main);
         break;
-      case "item_description":
-        $item_description.appendTo($main);
+      case "itemDescription":
+        const itemDescriptionHTML = itemDescription.createDescription(data);
+        const $itemDescription = $(itemDescriptionHTML);
+        // $main.append($itemDescription);
+        // console.log(data);
+        $itemDescription.appendTo($main);
         break;
       case "error": {
         const $error = $(`<p>${arguments[1]}</p>`);

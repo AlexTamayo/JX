@@ -20,17 +20,17 @@ router.get("/items/:id", (req, res) => {
   const id = req.params.id;
   console.log(id);
 
-  views_manager.show('item_description');
+  // views_manager.show('itemDescription');
 
-  // database
-  //   .getAllItems(req.query, 350)
-  //   .then((items) => {
-  //     // console.log(items);
-  //     res.send({ items })})
-  //   .catch((e) => {
-  //     console.error(e);
-  //     res.send(e);
-  //   });
+  database
+    .getItemDescription(id)
+    .then((items) => {
+      // console.log(items);
+      res.send({ items })})
+    .catch((e) => {
+      console.error(e);
+      res.send(e);
+    });
 });
 
 router.get("/favourited", (req, res) => {
