@@ -40,10 +40,8 @@ $(() => {
     const itemId = $(this).attr('id');
     $.get("/api/items/" + itemId)
       .done(function(data) {
-        // console.log("This is from click event", data);
         // console.log(data);
         views_manager.show("itemDescription", data);
-        // views_manager.show("itemDescription")
       });
   });
 

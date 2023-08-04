@@ -3,8 +3,16 @@ $(() => {
   
   function createDescription(data) {
     item = data.items[0];
+
+    // $(document).on('click', '.chat_button', function() {
+    //   $.get(`/apis/${item.owner_id}/${item.id}`)
+    //   .done(function(data) {
+    //     views_manager.show("convoForm", data);
+    //   });
+    // });
+    
     return `
-    <article class="item-container">
+    <article class="item-container" id="${item.id}">
       <div class="item-img">
         <img src="${item.image_1}" alt="${item.title} Image">
       </div>
@@ -12,7 +20,7 @@ $(() => {
       <div class="item-info">
         <div class="title">${item.title}</div>
         <div class="price">$${item.price}.00</div>
-        <div class="chat">Start the chat</div>
+        <div class="chat_button">Start the chat</div>
         <div class="description">
           <div class= "description_title">
             <p><strong>Description</strong></p>
@@ -34,30 +42,6 @@ $(() => {
   }
 
   window.itemDescription.createDescription = createDescription;
-
-
-  
-  // $newPropertyForm.on('submit', function (event) {
-  //   event.preventDefault();
-
-  //   views_manager.show('none');
-
-  //   const data = $(this).serialize();
-  //   submitProperty(data)
-  //   .then(() => {
-  //     views_manager.show('listings');
-  //   })
-  //   .catch((error) => {
-  //     console.error(error);
-  //     views_manager.show('listings');
-  //   })
-  // });
-
-  // $('body').on('click', '#property-form__cancel', function() {
-  //   views_manager.show('listings');
-  //   return false;
-  // });
-
 
 
 });

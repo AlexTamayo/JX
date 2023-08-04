@@ -9,7 +9,6 @@ $(() => {
     switch (item) {
       case "listings":
         $propertyListings.appendTo($main);
-        listing_select();
         break;
       case "newProperty":
         $newPropertyForm.appendTo($main);
@@ -32,8 +31,6 @@ $(() => {
       case "itemDescription":
         const itemDescriptionHTML = itemDescription.createDescription(data);
         const $itemDescription = $(itemDescriptionHTML);
-        // $main.append($itemDescription);
-        // console.log(data);
         $itemDescription.appendTo($main);
         break;
       case "error": {

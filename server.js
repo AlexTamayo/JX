@@ -39,6 +39,7 @@ app.use(
 // Note: Feel free to replace the example routes below with your own
 const apiRoutes = require("./routes/apis");
 const userRoutes = require("./routes/users");
+const messageRoutes = require("./routes/messages");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -49,6 +50,9 @@ app.use("/api", apiRoutes);
 
 // /user/endpoints
 app.use("/users", userRoutes);
+
+// /message/endpoints
+app.use("/messages", userRoutes);
 
 app.listen(PORT, (err) => {
   console.log(err || `JX is listening on port ${PORT}`);
