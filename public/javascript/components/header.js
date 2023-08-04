@@ -57,7 +57,8 @@ $(() => {
     propertyListings.clearListings();
     getFavouritedItems()
       .then(function(json) {
-        propertyListings.addProperties(json.reservations, true);
+        // propertyListings.addProperties(json.reservations, true);
+        propertyListings.addProperties(json.favourites, true);
         views_manager.show('listings');
       })
       .catch(error => console.error(error));

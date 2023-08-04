@@ -1,4 +1,5 @@
 $(() => {
+  
   const $item_description = $(`
 <article class="item-container">
   <div class="item-img"></div>

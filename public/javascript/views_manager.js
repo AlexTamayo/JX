@@ -20,6 +20,7 @@ $(() => {
     $signUpForm.detach();
     $message_inbox.detach();
     $convo_form.detach();
+    $item_description.detach();
 
     switch (item) {
       case "listings":
@@ -43,6 +44,9 @@ $(() => {
         break;
       case "convo_form":
         $convo_form.appendTo($main);
+        break;
+      case "item_description":
+        $item_description.appendTo($main);
         break;
       case "error": {
         const $error = $(`<p>${arguments[1]}</p>`);
