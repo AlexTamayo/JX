@@ -112,8 +112,6 @@ const getFavouritedItems = function(owner_id, limit = 10) {
     $2;
   `;
 
-  // const values = [1, limit];
-
   const values = [owner_id, limit];
 
   return db
@@ -129,79 +127,79 @@ const getFavouritedItems = function(owner_id, limit = 10) {
 /// Properties
 
 
-// const getAllProperties = (options, limit = 10) => {
+const getAllProperties = (options, limit = 10) => {
 
-//   const queryParams = [];
+  const queryParams = [];
 
-//   let queryStr = `
-//   SELECT
-//     properties.*,
-//     avg(property_reviews.rating) as average_rating
-//   FROM
-//     properties
-//   JOIN
-//     property_reviews ON properties.id = property_id
-//   `;
+  let queryStr = `
+  SELECT
+    properties.*,
+    avg(property_reviews.rating) as average_rating
+  FROM
+    properties
+  JOIN
+    property_reviews ON properties.id = property_id
+  `;
 
-//   const whereClauses = [];
+  const whereClauses = [];
 
-//   //  owner_id | number_of_listings 
-//   // ----------+--------------------
-//   //     850   |         5
-//   //     818   |         5
-//   //     654   |         5
-//   //     617   |         5
-//   //     401   |         5
+  //  owner_id | number_of_listings 
+  // ----------+--------------------
+  //     850   |         5
+  //     818   |         5
+  //     654   |         5
+  //     617   |         5
+  //     401   |         5
 
-//   if (options.owner_id) {
-//     // queryParams.push(`${options.owner_id}`);
-//     queryParams.push(850);
-//     whereClauses.push(`properties.owner_id = $${queryParams.length}`);
-//   }
+  if (options.owner_id) {
+    // queryParams.push(`${options.owner_id}`);
+    queryParams.push(850);
+    whereClauses.push(`properties.owner_id = $${queryParams.length}`);
+  }
 
-//   if (options.city) {
-//     queryParams.push(`%${options.city}%`);
-//     whereClauses.push(`city LIKE $${queryParams.length}`);
-//   }
+  if (options.city) {
+    queryParams.push(`%${options.city}%`);
+    whereClauses.push(`city LIKE $${queryParams.length}`);
+  }
 
-//   if (options.minimum_price_per_night) {
-//     queryParams.push(`${options.minimum_price_per_night * 100}`);
-//     whereClauses.push(`cost_per_night >= $${queryParams.length}`);
-//   }
+  if (options.minimum_price) {
+    queryParams.push(`${options.minimum_price * 100}`);
+    whereClauses.push(`cost_per_night >= $${queryParams.length}`);
+  }
 
-//   if (options.maximum_price_per_night) {
-//     queryParams.push(`${options.maximum_price_per_night * 100}`);
-//     whereClauses.push(`cost_per_night <= $${queryParams.length}`);
-//   }
+  if (options.maximum_price) {
+    queryParams.push(`${options.maximum_price * 100}`);
+    whereClauses.push(`cost_per_night <= $${queryParams.length}`);
+  }
 
-//   if (whereClauses.length > 0) {
-//     queryStr += ' WHERE ' + whereClauses.join(' AND ');
-//   }
+  if (whereClauses.length > 0) {
+    queryStr += ' WHERE ' + whereClauses.join(' AND ');
+  }
 
-//   queryStr += `
-//   GROUP BY
-//     properties.id
-//   `;
+  queryStr += `
+  GROUP BY
+    properties.id
+  `;
 
-//   if (options.minimum_rating) {
-//     queryParams.push(`${options.minimum_rating}`);
-//     queryStr += `HAVING avg(property_reviews.rating) >= $${queryParams.length}`;
+  if (options.minimum_rating) {
+    queryParams.push(`${options.minimum_rating}`);
+    queryStr += `HAVING avg(property_reviews.rating) >= $${queryParams.length}`;
 
-//   }
+  }
 
-//   queryParams.push(`${limit}`);
-//   queryStr += `
-//   ORDER BY
-//     cost_per_night
-//   LIMIT
-//     $${queryParams.length};
-//   `;
+  queryParams.push(`${limit}`);
+  queryStr += `
+  ORDER BY
+    cost_per_night
+  LIMIT
+    $${queryParams.length};
+  `;
 
-//   return db
-//     .query(queryStr, queryParams)
-//     .then(result => result.rows)
-//     .catch(err => console.log(err.message));
-// };
+  return db
+    .query(queryStr, queryParams)
+    .then(result => result.rows)
+    .catch(err => console.log(err.message));
+};
 
 // const getAllItems = (options, limit = 10) => {
 
@@ -275,6 +273,16 @@ const getAllItems = (options, limit = 10) => {
   if (options.owner_id) {
     queryParams.push(`${options.owner_id}`);
     whereClauses.push(`items.owner_id = $${queryParams.length}`);
+  }
+
+  if (options.minimum_price) {
+    queryParams.push(`${options.minimum_price}`);
+    whereClauses.push(`price >= $${queryParams.length}`);
+  }
+
+  if (options.maximum_price) {
+    queryParams.push(`${options.maximum_price}`);
+    whereClauses.push(`price <= $${queryParams.length}`);
   }
 
   if (whereClauses.length > 0) {

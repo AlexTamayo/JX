@@ -3,15 +3,10 @@ $(() => {
   const $searchPropertyForm = $(`
   <form action="/items" method="get" id="search-property-form" class="search-property-form">
       <div class="search-property-form__field-wrapper">
-        <label for="search-property-form__city">City</label>
-        <input type="text" name="city" placeholder="City" id="search-property-form__city">
-      </div>
-
-      <div class="search-property-form__field-wrapper">
-        <label for="search-property-form__minimum-price-per-night">Minimum Cost</label>
-        <input type="number" name="minimum_price_per_night" placeholder="Minimum Cost" id="search-property-form__minimum-price-per-night">
-        <label for="search-property-form__maximum-price-per-night">Maximum Cost</label>
-        <input type="number" name="maximum_price_per_night" placeholder="Maximum Cost" id="search-property-form__maximum-price-per-night">
+        <label for="search-property-form__minimum-price">Minimum Cost</label>
+        <input type="number" name="minimum_price" placeholder="Minimum Cost" id="search-property-form__minimum-price">
+        <label for="search-property-form__maximum-price">Maximum Cost</label>
+        <input type="number" name="maximum_price" placeholder="Maximum Cost" id="search-property-form__maximum-price">
       </div>
 
       <div class="search-property-form__field-wrapper">
