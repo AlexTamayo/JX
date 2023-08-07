@@ -90,15 +90,15 @@
   background-color: transparent;
   color: #aaa;
   cursor: pointer;
-  border-radius: 50%;
+  border-radius: 20px;
   padding: 6px;
   margin: 4px;
 }
 
 .delete-button:hover,
 .mark-sold-button:hover {
-  background-color: #eee;
-  color: #777;
+  background-color: #e75252;
+  color: #ffffff;
 }
 
 .sold-tag {
