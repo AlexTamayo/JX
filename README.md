@@ -42,3 +42,20 @@ The following steps are only for _one_ of the group members to perform.
 - Node 10.x or above
 - NPM 5.x or above
 - PG 6.x
+
+## Screenshots
+
+### Home
+![Home 1](./public/images/md_images/001_home.png)
+
+### Search 1
+![Search 1](./public/images/md_images/002_search.png)
+
+### Search 2
+![Search 2](./public/images/md_images/003_search.png)
+
+### Post 1
+![Post 1](./public/images/md_images/004_post.png)
+
+### 
+![Post 2](./public/images/md_images/005_post.png)
