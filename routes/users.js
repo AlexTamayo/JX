@@ -17,6 +17,7 @@ router.post("/", (req, res) => {
       }
 
       req.session.userId = user.id;
+      
       res.send("🤗");
     })
     .catch((e) => res.send(e));

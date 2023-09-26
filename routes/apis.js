@@ -11,14 +11,9 @@ router.get("/items", (req, res) => {
       res.send({ items })})
     .catch((e) => {
       console.error(e);
-      res.send(e);
+      res.status(500).send(e);
     });
 });
-
-
-
-
-
 
 router.get("/items/:id", (req, res) => {
   const id = req.params.id;
@@ -29,7 +24,7 @@ router.get("/items/:id", (req, res) => {
       res.send({ items })})
     .catch((e) => {
       console.error(e);
-      res.send(e);
+      res.status(500).send(e);
     });
 });
 
@@ -45,7 +40,7 @@ router.get("/:owner/:item", (req, res) => {
     //     res.send({ items })})
     //   .catch((e) => {
     //     console.error(e);
-    //     res.send(e);
+    //     res.status(500).send(e);
     //   });
     res.send("Request received successfully!");
   });
@@ -61,7 +56,7 @@ router.get("/favourited", (req, res) => {
     .then((favourites) => res.send({ favourites }))
     .catch((e) => {
       console.error(e);
-      res.send(e);
+      res.status(500).send(e);
     });
 });
 
@@ -74,7 +69,7 @@ router.get("/items", (req, res) => {
       res.send({ items })})
     .catch((e) => {
       console.error(e);
-      res.send(e);
+      res.status(500).send(e);
     });
 });
 
@@ -93,7 +88,7 @@ router.post("/items", (req, res) => {
     })
     .catch((e) => {
       console.error(e);
-      res.send(e);
+      res.status(500).send(e);
     });
 });
 
