@@ -19,6 +19,10 @@ Welcome to JX, your one-stop solution for a modern, intuitive product listing ex
 
 ## Media
 
+### Video
+
+https://github.com/AlexTamayo/JX/assets/3316856/5b9382af-0b70-4ced-86f7-aef186963cd1
+
 ### Home
 ![Home 1](./public/images/md_images/001_home.png)
 
